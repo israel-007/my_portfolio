@@ -1,603 +1,857 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Abimbolu Oluyemi — PHP Full-Stack Developer</title>
-  <meta name="description" content="Abimbolu Oluyemi — PHP full-stack developer building backend-heavy applications, APIs, developer tools and business systems.">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Abimbolu Oluyemi — PHP Full-Stack Developer</title>
+    <link href="https://avatars.githubusercontent.com/u/76886811?v=4" rel="icon" type="image/x-icon">
+    <meta name="description" content="Abimbolu Oluyemi — PHP full-stack developer building backend-heavy applications, APIs, developer tools and business systems.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
 
-<nav class="navbar navbar-expand-lg fixed-top">
-  <div class="container py-2">
-    <a class="navbar-brand mono" href="#home">~/Oluyemi<span class="brand-dot">_</span></a>
-    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-      <i class="bi bi-list text-white fs-4"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
-        <li><a class="nav-link" href="#stack">Stack</a></li>
-        <li><a class="nav-link" href="#projects">Projects</a></li>
-        <li><a class="nav-link" href="#engineering">Engineering</a></li>
-        <li><a class="nav-link" href="#cv">CV</a></li>
-        <li><a class="nav-link" href="#code">Code</a></li>
-        <li><a class="nav-link" href="#contact">Contact</a></li>
-        <li><a class="btn btn-sm btn-ghost mono ms-lg-2" href="https://github.com/israel-007" target="_blank"><i class="bi bi-github me-1"></i> GitHub</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<main id="home">
-
-<section class="hero grid-bg">
-  <div class="container">
-    <div class="row align-items-center g-5">
-      <div class="col-lg-6">
-        <div class="eyebrow"><span class="pulse"></span> AVAILABLE FOR BUILDING</div>
-        <h1>PHP<br><span style="color:#7f8b99">full-stack</span><br>developer.</h1>
-        <p class="hero-copy">
-          I build backend-heavy web applications, APIs, developer tools and business systems —
-          with PHP at the core and clean, practical interfaces on top.
-        </p>
-        <div class="d-flex flex-wrap gap-2 mt-4">
-          <a href="#projects" class="btn btn-code"><i class="bi bi-code-slash me-2"></i>View projects</a>
-          <a href="https://github.com/israel-007" target="_blank" class="btn btn-ghost"><i class="bi bi-github me-2"></i>github.com/israel-007</a>
-        </div>
-        <div class="d-flex flex-wrap gap-2 mt-4">
-          <span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">MySQL</span>
-          <span class="tag">PostgreSQL</span><span class="tag">JavaScript</span><span class="tag">REST API</span>
-        </div>
-      </div>
-
-      <div class="col-lg-6">
-        <div class="code-window">
-          <div class="window-head">
-            <span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>
-            <span class="window-title">Developer.php</span>
-          </div>
-          <div class="code-body">
-            <div><span class="ln">01</span><span class="kw">&lt;?php</span></div>
-            <div><span class="ln">02</span></div>
-            <div><span class="ln">03</span><span class="kw">namespace</span> <span class="type">Oluyemi</span>;</div>
-            <div><span class="ln">04</span></div>
-            <div><span class="ln">05</span><span class="kw">class</span> <span class="type">Developer</span></div>
-            <div><span class="ln">06</span>{</div>
-            <div><span class="ln">07</span>&nbsp;&nbsp;<span class="kw">public string</span> <span class="var">$focus</span> = <span class="str">'backend engineering'</span>;</div>
-            <div><span class="ln">08</span></div>
-            <div><span class="ln">09</span>&nbsp;&nbsp;<span class="kw">public function</span> <span class="fn">build</span>(<span class="type">string</span> <span class="var">$idea</span>): <span class="type">Application</span></div>
-            <div><span class="ln">10</span>&nbsp;&nbsp;{</div>
-            <div><span class="ln">11</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="type">Application</span>::<span class="fn">make</span>(<span class="var">$idea</span>)</div>
-            <div><span class="ln">12</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-><span class="fn">secure</span>()</div>
-            <div><span class="ln">13</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-><span class="fn">maintainable</span>()</div>
-            <div><span class="ln">14</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-><span class="fn">ship</span>();</div>
-            <div><span class="ln">15</span>&nbsp;&nbsp;}</div>
-            <div><span class="ln">16</span>}</div>
-            <div class="mt-3"><span class="ln">17</span><span class="comment">// PHP first. Products second. No unnecessary complexity.</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="stack">
-  <div class="container">
-    <div class="section-label">01 / stack</div>
-    <h2 class="section-title">Tools I build with.</h2>
-    <p class="section-desc">A PHP-first stack covering application architecture, APIs, databases, interfaces and the tooling around them.</p>
-
-    <div class="row g-3 mt-4">
-      <div class="col-md-6 col-lg-3"><div class="stack-card">
-        <div class="stack-icon"><i class="bi bi-braces"></i></div><h6>Backend</h6>
-        <p>PHP, Laravel, MVC, REST APIs, authentication, middleware and business logic.</p>
-      </div></div>
-      <div class="col-md-6 col-lg-3"><div class="stack-card">
-        <div class="stack-icon"><i class="bi bi-database"></i></div><h6>Data</h6>
-        <p>MySQL, PostgreSQL, Redis, SQL, JSON, caching and structured data processing.</p>
-      </div></div>
-      <div class="col-md-6 col-lg-3"><div class="stack-card">
-        <div class="stack-icon"><i class="bi bi-window-stack"></i></div><h6>Frontend</h6>
-        <p>JavaScript, jQuery, Bootstrap, Tailwind CSS, AJAX and responsive interfaces.</p>
-      </div></div>
-      <div class="col-md-6 col-lg-3"><div class="stack-card">
-        <div class="stack-icon"><i class="bi bi-terminal"></i></div><h6>Developer tools</h6>
-        <p>Composer, Git, GitHub, reusable PHP libraries, fluent APIs and integrations.</p>
-      </div></div>
-    </div>
-  </div>
-</section>
-
-<section id="projects" style="background:#0a0e13">
-  <div class="container">
-    <div class="section-label">02 / projects</div>
-    <h2 class="section-title">Things I've built.</h2>
-    <p class="section-desc">Open-source projects and engineering work centered around making PHP applications easier to build and maintain.</p>
-
-    <div class="row g-3 mt-4">
-      <!-- JBreeze -->
-      <div class="col-md-6 col-lg-4"><div class="project-card">
-        <div class="repo-line"><i class="bi bi-github me-1"></i> israel-007 / JBreeze</div>
-        <h5>JBreeze</h5>
-        <p>Lightweight PHP library for flexible querying and manipulation of JSON datasets with chainable API, filtering with operators, sorting, insert/update/delete functionality.</p>
-        <span class="tag">PHP</span><span class="tag">JSON</span><span class="tag">Fluent API</span>
-        <div class="mt-2" style="background:#0b0f14;border:1px solid #202a34;border-radius:9px;padding:12px;font-size:.7rem;line-height:1.8;font-family:'JetBrains Mono',monospace;color:#b8c4d0;overflow-x:auto">
-          <span style="color:#c792ea">require</span> <span style="color:#c3e88d">'vendor/autoload.php'</span>;<br>
-          <span style="color:#c792ea">$jb</span> = <span style="color:#c792ea">new</span> <span style="color:#ffcb6b">Jbreeze</span>(<span style="color:#c3e88d">'users.json'</span>);<br>
-          <span style="color:#c792ea">$users</span> = <span style="color:#c792ea">$jb</span><span style="color:#c792ea">-></span><span style="color:#82aaff">where</span>(<span style="color:#c3e88d">'status'</span>, <span style="color:#c3e88d">'active'</span>)<br>
-          &nbsp;&nbsp;-><span style="color:#82aaff">orderBy</span>(<span style="color:#c3e88d">'name'</span>)-><span style="color:#82aaff">get</span>();
-        </div>
-        <div class="mt-2"><a class="project-link" href="https://github.com/israel-007/JBreeze" target="_blank">VIEW REPOSITORY →</a></div>
-      </div></div>
-
-      <!-- fluentXLSX -->
-      <div class="col-md-6 col-lg-4"><div class="project-card">
-        <div class="repo-line"><i class="bi bi-github me-1"></i> israel-007 / fluentXLSX</div>
-        <h5>fluentXLSX</h5>
-        <p>Unified fluent API for reading and writing Excel files. Wraps SimpleXLSX and SimpleXLSXGen for seamless .xlsx handling with chainable methods.</p>
-        <span class="tag">PHP</span><span class="tag">Excel</span><span class="tag">Fluent API</span>
-        <div class="mt-2" style="background:#0b0f14;border:1px solid #202a34;border-radius:9px;padding:12px;font-size:.7rem;line-height:1.8;font-family:'JetBrains Mono',monospace;color:#b8c4d0;overflow-x:auto">
-          <span style="color:#ffcb6b">Excel</span>::<span style="color:#82aaff">write</span>()<br>
-          &nbsp;&nbsp;-><span style="color:#82aaff">addSheet</span>(<span style="color:#c3e88d">'Users'</span>, [<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;[<span style="color:#c3e88d">'ID'</span>, <span style="color:#c3e88d">'Name'</span>, <span style="color:#c3e88d">'Email'</span>],<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;[<span style="color:#f78c6c">1</span>, <span style="color:#c3e88d">'John'</span>, <span style="color:#c3e88d">'john@example.com'</span>]<br>
-          &nbsp;&nbsp;])-><span style="color:#82aaff">save</span>(<span style="color:#c3e88d">'output.xlsx'</span>);
-        </div>
-        <div class="mt-2"><a class="project-link" href="https://github.com/israel-007/fluentXLSX" target="_blank">VIEW REPOSITORY →</a></div>
-      </div></div>
-
-      <!-- Currency Convert Breeze -->
-      <div class="col-md-6 col-lg-4"><div class="project-card">
-        <div class="repo-line"><i class="bi bi-github me-1"></i> israel-007 / currency_convert_breeze</div>
-        <h5>Currency Convert Breeze</h5>
-        <p>PHP currency conversion library with real-time exchange rates, chainable API, session-based caching, supports multiple target currencies with JSON/array output.</p>
-        <span class="tag">PHP</span><span class="tag">API</span><span class="tag">Currency</span>
-        <div class="mt-2" style="background:#0b0f14;border:1px solid #202a34;border-radius:9px;padding:12px;font-size:.7rem;line-height:1.8;font-family:'JetBrains Mono',monospace;color:#b8c4d0;overflow-x:auto">
-          <span style="color:#c792ea">$converter</span> = <span style="color:#c792ea">new</span> <span style="color:#ffcb6b">Converter</span>();<br>
-          <span style="color:#c792ea">$result</span> = <span style="color:#c792ea">$converter</span>-><span style="color:#82aaff">from</span>(<span style="color:#c3e88d">'USD'</span>)<br>
-          &nbsp;&nbsp;-><span style="color:#82aaff">to</span>([<span style="color:#c3e88d">'EUR'</span>, <span style="color:#c3e88d">'GBP'</span>, <span style="color:#c3e88d">'NGN'</span>])<br>
-          &nbsp;&nbsp;-><span style="color:#82aaff">amount</span>(<span style="color:#f78c6c">100</span>)-><span style="color:#82aaff">run</span>(<span style="color:#c3e88d">'json'</span>);
-        </div>
-        <div class="mt-2"><a class="project-link" href="https://github.com/israel-007/currency_convert_breeze" target="_blank">VIEW REPOSITORY →</a></div>
-      </div></div>
-
-      <!-- Mobile ISP -->
-      <div class="col-md-6 col-lg-4"><div class="project-card">
-        <div class="repo-line"><i class="bi bi-github me-1"></i> israel-007 / mobile-isp</div>
-        <h5>Mobile ISP</h5>
-        <p>Phone number lookup library providing mobile service provider info, ISP details, country data and international formatting for Nigeria, Ghana, Egypt, South Africa.</p>
-        <span class="tag">PHP</span><span class="tag">API</span><span class="tag">Phone Data</span>
-        <div class="mt-2" style="background:#0b0f14;border:1px solid #202a34;border-radius:9px;padding:12px;font-size:.7rem;line-height:1.8;font-family:'JetBrains Mono',monospace;color:#b8c4d0;overflow-x:auto">
-          <span style="color:#c792ea">require_once</span>(<span style="color:#c3e88d">'app/autoload.php'</span>);<br>
-          <span style="color:#c792ea">$response</span> = <span style="color:#ffcb6b">Provider</span>::<span style="color:#82aaff">check</span>(<br>
-          &nbsp;&nbsp;<span style="color:#c3e88d">'+2348012345678'</span><br>
-          );<br>
-          <span style="color:#596674">// Returns: ISP, country, dial code, intl format</span>
-        </div>
-        <div class="mt-2"><a class="project-link" href="https://github.com/israel-007/mobile-isp" target="_blank">VIEW REPOSITORY →</a></div>
-      </div></div>
-
-      <!-- CoreX -->
-      <div class="col-md-6 col-lg-4"><div class="project-card">
-        <div class="repo-line"><i class="bi bi-github me-1"></i> israel-007 / CoreX</div>
-        <h5>CoreX</h5>
-        <p>Collection of reusable PHP utilities and developer helpers. Common abstractions for faster development and cleaner application code.</p>
-        <span class="tag">PHP</span><span class="tag">Utilities</span><span class="tag">Helpers</span>
-        <div class="mt-2" style="background:#0b0f14;border:1px solid #202a34;border-radius:9px;padding:12px;font-size:.7rem;line-height:1.8;font-family:'JetBrains Mono',monospace;color:#b8c4d0;overflow-x:auto">
-          <span style="color:#c792ea">use</span> <span style="color:#ffcb6b">CoreX</span>\<span style="color:#ffcb6b">Utilities</span>\<span style="color:#ffcb6b">Helper</span>;<br>
-          <span style="color:#c792ea">use</span> <span style="color:#ffcb6b">CoreX</span>\<span style="color:#ffcb6b">Validation</span>\<span style="color:#ffcb6b">Validator</span>;<br>
-          <br>
-          <span style="color:#596674">// Common utilities for cleaner code</span>
-        </div>
-        <div class="mt-2"><a class="project-link" href="https://github.com/israel-007" target="_blank">VIEW ON GITHUB →</a></div>
-      </div></div>
-
-      <!-- Business Systems -->
-      <div class="col-md-6 col-lg-4"><div class="project-card">
-        <div class="repo-line"><i class="bi bi-git me-1"></i> private / product work</div>
-        <h5>Business Systems</h5>
-        <p>HR/payroll, property management, school systems, e-commerce, CMS, membership platforms, voting systems. Built for real workflows with database design, APIs, admin interfaces.</p>
-        <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Laravel</span>
-        <div class="mt-2" style="background:#0b0f14;border:1px solid #202a34;border-radius:9px;padding:12px;font-size:.7rem;line-height:1.8;font-family:'JetBrains Mono',monospace;color:#b8c4d0;overflow-x:auto">
-          <span style="color:#596674">// Enterprise systems portfolio:</span><br>
-          <span style="color:#596674">// HR + Payroll | E-commerce | Property</span><br>
-          <span style="color:#596674">// Education | Admin | Membership</span><br>
-          <span style="color:#596674">// Real databases, APIs, workflows</span>
-        </div>
-        <div class="mt-2"><a class="project-link" href="#contact">DISCUSS A PROJECT →</a></div>
-      </div></div>
-    </div>
-  </div>
-</section>
-
-<section id="engineering">
-  <div class="container">
-    <div class="section-label">03 / engineering</div>
-    <div class="row g-5 align-items-start">
-      <div class="col-lg-5">
-        <h2 class="section-title">Backend first.<br>Product minded.</h2>
-        <p class="section-desc">I like taking an idea beyond a screen — into database design, application rules, APIs, validation, security and deployment.</p>
-        <div class="row g-2 mt-3">
-          <div class="col-6"><div class="metric"><strong>PHP</strong><span>primary language</span></div></div>
-          <div class="col-6"><div class="metric"><strong>API</strong><span>integration focused</span></div></div>
-          <div class="col-6"><div class="metric"><strong>SQL</strong><span>data driven</span></div></div>
-          <div class="col-6"><div class="metric"><strong>Git</strong><span>version controlled</span></div></div>
-        </div>
-      </div>
-      <div class="col-lg-6 offset-lg-1">
-        <div class="arch-step"><h6>01 — ARCHITECTURE</h6><p>Break the product into clear modules, responsibilities and reusable components.</p></div>
-        <div class="arch-step"><h6>02 — DATABASE</h6><p>Model data around the actual business rules instead of forcing the product into a generic schema.</p></div>
-        <div class="arch-step"><h6>03 — BUSINESS LOGIC</h6><p>Keep validation, permissions and workflows explicit and testable.</p></div>
-        <div class="arch-step"><h6>04 — API / UI</h6><p>Expose clean interfaces and build a responsive frontend that works with the backend.</p></div>
-        <div class="arch-step"><h6>05 — SECURITY + SHIP</h6><p>Authentication, rate limiting, CSRF protection, headers, caching and practical deployment.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section id="cv">
-  <div class="container">
-    <div class="section-label">04 / cv</div>
-    <div class="row g-5">
-      <div class="col-lg-8">
-        <h2 class="section-title">Experience beyond the code.</h2>
-        <p class="section-desc">
-          A developer profile built from hands-on product development, system analysis,
-          project delivery, database work and working directly with users and clients.
-        </p>
-
-
-        <div class="mt-5">
-          <div class="d-flex justify-content-between align-items-start mb-4">
-            <div>
-              <span class="tag">2025 — PRESENT</span>
-              <h4 class="mt-3 mb-1 fw-bold">Senior Developer</h4>
-              <div class="mono small" style="color:var(--green)">Travooler · Nigeria</div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container py-2">
+            <a class="navbar-brand mono" href="#home">~/Oluyemi<span class="brand-dot">_</span></a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#nav">
+                <i class="bi bi-list text-white fs-4"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+                    <li><a class="nav-link" href="#stack">Stack</a></li>
+                    <li><a class="nav-link" href="#projects">Projects</a></li>
+                    <li><a class="nav-link" href="#engineering">Engineering</a></li>
+                    <li><a class="nav-link" href="#cv">CV</a></li>
+                    <li><a class="nav-link" href="#code">Code</a></li>
+                    <li><a class="nav-link" href="#contact">Contact</a></li>
+                    <li><a class="btn btn-sm btn-ghost mono ms-lg-2" href="https://github.com/israel-007"
+                            target="_blank"><i class="bi bi-github me-1"></i> GitHub</a></li>
+                </ul>
             </div>
-          </div>
-          <ul class="cv-list">
-            <li>Build, manage, maintain and continuously upgrade Travooler's short-let property platform and supporting systems.</li>
-            <li>Develop and improve platform features and internal workflows while translating business requirements into practical technical solutions.</li>
-            <li>Maintain production systems, troubleshoot technical issues, implement fixes and deliver ongoing upgrades as the product and business evolve.</li>
-            <li>Develop, manage and refine the AI that powers the Travooler website, including AI-driven functionality, application logic, integrations and continuous improvements.</li>
-            <li>Support the onboarding of new staff by providing technical guidance and helping team members understand relevant systems, workflows and tools.</li>
-            <li>Work with the wider team to improve system reliability, usability, automation and the digital experience for customers and staff.</li>
-          </ul>
         </div>
+    </nav>
 
-        <hr class="cv-divider">
-        <div class="mt-5">
-          <div class="d-flex justify-content-between align-items-start mb-4">
-            <div>
-              <span class="tag">2023 — 2025</span>
-              <h4 class="mt-3 mb-1 fw-bold">Senior Analyst</h4>
-              <div class="mono small" style="color:var(--green)">StudySpace LTD · Ogun State, Nigeria</div>
+    <main id="home">
+
+        <section class="hero grid-bg">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6">
+                        <div class="eyebrow"><span class="pulse"></span> AVAILABLE FOR BUILDING</div>
+                        <h1>PHP<br><span style="color:#7f8b99">full-stack</span><br>developer.</h1>
+                        <p class="hero-copy">
+                            I build backend-heavy web applications, APIs, developer tools and business systems —
+                            with PHP at the core and clean, practical interfaces on top.
+                        </p>
+                        <div class="d-flex flex-wrap gap-2 mt-4">
+                            <a href="#projects" class="btn btn-code"><i class="bi bi-code-slash me-2"></i>View
+                                projects</a>
+                            <a href="https://github.com/israel-007" target="_blank" class="btn btn-ghost"><i
+                                    class="bi bi-github me-2"></i>github.com/israel-007</a>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2 mt-4">
+                            <span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">MySQL</span>
+                            <span class="tag">PostgreSQL</span><span class="tag">JavaScript</span><span class="tag">REST
+                                API</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="code-window">
+                            <div class="window-head">
+                                <span class="window-dot"></span><span class="window-dot"></span><span
+                                    class="window-dot"></span>
+                                <span class="window-title">Developer.php</span>
+                            </div>
+                            <div class="code-body">
+                                <div><span class="ln">01</span><span class="kw">&lt;?php</span></div>
+                                <div><span class="ln">02</span></div>
+                                <div><span class="ln">03</span><span class="kw">namespace</span> <span
+                                        class="type">Oluyemi</span>;</div>
+                                <div><span class="ln">04</span></div>
+                                <div><span class="ln">05</span><span class="kw">class</span> <span
+                                        class="type">Developer</span></div>
+                                <div><span class="ln">06</span>{</div>
+                                <div><span class="ln">07</span>&nbsp;&nbsp;<span class="kw">public string</span> <span
+                                        class="var">$focus</span> = <span class="str">'backend engineering'</span>;
+                                </div>
+                                <div><span class="ln">08</span></div>
+                                <div><span class="ln">09</span>&nbsp;&nbsp;<span class="kw">public function</span> <span
+                                        class="fn">build</span>(<span class="type">string</span> <span
+                                        class="var">$idea</span>): <span class="type">Application</span></div>
+                                <div><span class="ln">10</span>&nbsp;&nbsp;{</div>
+                                <div><span class="ln">11</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span>
+                                    <span class="type">Application</span>::<span class="fn">make</span>(<span
+                                        class="var">$idea</span>)</div>
+                                <div><span class="ln">12</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-><span
+                                        class="fn">secure</span>()</div>
+                                <div><span class="ln">13</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-><span
+                                        class="fn">maintainable</span>()</div>
+                                <div><span class="ln">14</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-><span
+                                        class="fn">ship</span>();</div>
+                                <div><span class="ln">15</span>&nbsp;&nbsp;}</div>
+                                <div><span class="ln">16</span>}</div>
+                                <div class="mt-3"><span class="ln">17</span><span class="comment">// PHP first. Products
+                                        second. No unnecessary complexity.</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <ul class="cv-list">
-            <li>Performed system analysis, documentation, testing, implementation and user support for platform transitions.</li>
-            <li>Recommended process improvements to identify, analyze and resolve constraints and challenges.</li>
-            <li>Enhanced interfaces to promote better functionality and user experience.</li>
-            <li>Evaluated customer needs and feedback to drive product and service improvements.</li>
-            <li>Developed a SaaS application for managing internal admission applications, visa applications and flight-ticket bookings for study-abroad agencies.</li>
-            <li>Worked with staff and management on compliance, documentation and organizational processes.</li>
-          </ul>
-        </div>
+        </section>
 
-        <hr class="cv-divider">
+        <section id="stack">
+            <div class="container">
+                <div class="section-label">01 / stack</div>
+                <h2 class="section-title">Tools I build with.</h2>
+                <p class="section-desc">A PHP-first stack covering application architecture, APIs, databases, interfaces
+                    and the tooling around them.</p>
 
-        <div class="d-flex justify-content-between align-items-start mb-4">
-          <div>
-            <span class="tag">2021 — 2023</span>
-            <h4 class="mt-3 mb-1 fw-bold">Full Stack Web Developer</h4>
-            <div class="mono small" style="color:var(--green)">StudySpace LTD · Ogun State, Nigeria</div>
-          </div>
-        </div>
-        <ul class="cv-list">
-          <li>Developed back-end components connecting applications with web services.</li>
-          <li>Built server-side and client-side applications using PHP, HTML, CSS, JavaScript and jQuery.</li>
-          <li>Integrated disparate systems and supported data migration while maintaining technical consistency.</li>
-          <li>Worked with clients and cross-functional teams to design new features and functionality.</li>
-          <li>Built internal content-management systems and content-delivery applications from client requirements.</li>
-          <li>Modified, tested and maintained MySQL database schemas.</li>
-          <li>Planned, coded and deployed web applications using PHP, MySQL and JavaScript.</li>
-          <li>Troubleshot technical issues in production environments and integrated third-party APIs.</li>
-        </ul>
+                <div class="row g-3 mt-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="stack-card">
+                            <div class="stack-icon"><i class="bi bi-braces"></i></div>
+                            <h6>Backend</h6>
+                            <p>PHP, Laravel, MVC, REST APIs, authentication, middleware and business logic.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="stack-card">
+                            <div class="stack-icon"><i class="bi bi-database"></i></div>
+                            <h6>Data</h6>
+                            <p>MySQL, PostgreSQL, Redis, SQL, JSON, caching and structured data processing.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="stack-card">
+                            <div class="stack-icon"><i class="bi bi-window-stack"></i></div>
+                            <h6>Frontend</h6>
+                            <p>JavaScript, jQuery, Bootstrap, Tailwind CSS, AJAX and responsive interfaces.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="stack-card">
+                            <div class="stack-icon"><i class="bi bi-terminal"></i></div>
+                            <h6>Developer tools</h6>
+                            <p>Composer, Git, GitHub, reusable PHP libraries, fluent APIs and integrations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <hr class="cv-divider">
+        <section id="projects" style="background:#0a0e13">
+            <div class="container">
+                <div class="section-label">02 / projects</div>
+                <h2 class="section-title">Things I've built.</h2>
+                <p class="section-desc">Open-source projects and engineering work centered around making PHP
+                    applications easier to build and maintain.</p>
 
-        <div class="d-flex justify-content-between align-items-start mb-4">
-          <div>
-            <span class="tag">2020 — 2021</span>
-            <h4 class="mt-3 mb-1 fw-bold">Teacher</h4>
-            <div class="mono small" style="color:var(--green)">Jesmish College · NYSC · Osun State, Nigeria</div>
-          </div>
-        </div>
-        <ul class="cv-list">
-          <li>Planned and implemented integrated lessons aligned with national standards.</li>
-          <li>Used multiple teaching strategies and engaging activities to improve student participation.</li>
-          <li>Designed and administered tests and evaluated student assignments and coursework.</li>
-          <li>Mentored student teachers on classroom management, lesson planning and activity organization.</li>
-          <li>Maintained student progress and attendance records in a database for accurate historical tracking.</li>
-          <li>Conducted performance evaluations and provided guidance for areas requiring improvement.</li>
-        </ul>
-      </div>
+                <div class="row g-3 mt-4">
+                    <!-- JBreeze -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="project-card">
+                            <div class="repo-line"><i class="bi bi-github me-1"></i> israel-007 / JBreeze</div>
+                            <h5>JBreeze</h5>
+                            <p>Lightweight PHP library for flexible querying and manipulation of JSON datasets with
+                                chainable API, filtering with operators, sorting, insert/update/delete functionality.
+                            </p>
+                            <span class="tag">PHP</span><span class="tag">JSON</span><span class="tag">Fluent API</span>
+                            <div class="mt-2"
+                                style="background:#0b0f14;border:1px solid #202a34;border-radius:9px;padding:12px;font-size:.7rem;line-height:1.8;font-family:'JetBrains Mono',monospace;color:#b8c4d0;overflow-x:auto">
+                                <span style="color:#c792ea">require</span> <span
+                                    style="color:#c3e88d">'vendor/autoload.php'</span>;<br>
+                                <span style="color:#c792ea">$jb</span> = <span style="color:#c792ea">new</span> <span
+                                    style="color:#ffcb6b">Jbreeze</span>(<span
+                                    style="color:#c3e88d">'users.json'</span>);<br>
+                                <span style="color:#c792ea">$users</span> = <span style="color:#c792ea">$jb</span><span
+                                    style="color:#c792ea">-></span><span style="color:#82aaff">where</span>(<span
+                                    style="color:#c3e88d">'status'</span>, <span
+                                    style="color:#c3e88d">'active'</span>)<br>
+                                &nbsp;&nbsp;-><span style="color:#82aaff">orderBy</span>(<span
+                                    style="color:#c3e88d">'name'</span>)-><span style="color:#82aaff">get</span>();
+                            </div>
+                            <div class="mt-2"><a class="project-link" href="https://github.com/israel-007/JBreeze"
+                                    target="_blank">VIEW REPOSITORY →</a></div>
+                        </div>
+                    </div>
 
-      <div class="col-lg-4">
-        <div class="cv-side-card mb-3">
-          <div class="section-label mb-3">Profile</div>
-          <h5 class="fw-bold">Abimbolu Israel Oluyemi</h5>
-          <p class="cv-muted">PHP Full-Stack Developer</p>
-          <div class="cv-contact">
-            <div><i class="bi bi-geo-alt"></i><span>Remote</span></div>
-            <div><i class="bi bi-envelope"></i><a href="mailto:abimboluoluyemi@gmail.com">abimboluoluyemi@gmail.com</a></div>
-            <div><i class="bi bi-github"></i><a href="https://github.com/israel-007" target="_blank">github.com/israel-007</a></div>
-            <div><i class="bi bi-telephone"></i><span>Phone available on request</span></div>
-          </div>
-        </div>
+                    <!-- fluentXLSX -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="project-card">
+                            <div class="repo-line"><i class="bi bi-github me-1"></i> israel-007 / fluentXLSX</div>
+                            <h5>fluentXLSX</h5>
+                            <p>Unified fluent API for reading and writing Excel files. Wraps SimpleXLSX and
+                                SimpleXLSXGen for seamless .xlsx handling with chainable methods.</p>
+                            <span class="tag">PHP</span><span class="tag">Excel</span><span class="tag">Fluent
+                                API</span>
+                            <div class="mt-2"
+                                style="background:#0b0f14;border:1px solid #202a34;border-radius:9px;padding:12px;font-size:.7rem;line-height:1.8;font-family:'JetBrains Mono',monospace;color:#b8c4d0;overflow-x:auto">
+                                <span style="color:#ffcb6b">Excel</span>::<span style="color:#82aaff">write</span>()<br>
+                                &nbsp;&nbsp;-><span style="color:#82aaff">addSheet</span>(<span
+                                    style="color:#c3e88d">'Users'</span>, [<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;[<span style="color:#c3e88d">'ID'</span>, <span
+                                    style="color:#c3e88d">'Name'</span>, <span
+                                    style="color:#c3e88d">'Email'</span>],<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;[<span style="color:#f78c6c">1</span>, <span
+                                    style="color:#c3e88d">'John'</span>, <span
+                                    style="color:#c3e88d">'john@example.com'</span>]<br>
+                                &nbsp;&nbsp;])-><span style="color:#82aaff">save</span>(<span
+                                    style="color:#c3e88d">'output.xlsx'</span>);
+                            </div>
+                            <div class="mt-2"><a class="project-link" href="https://github.com/israel-007/fluentXLSX"
+                                    target="_blank">VIEW REPOSITORY →</a></div>
+                        </div>
+                    </div>
 
-        <div class="cv-side-card mb-3">
-          <div class="section-label mb-3">Summary</div>
-          <p class="cv-muted">
-            Web developer specializing in front-end and back-end development, with experience
-            across the full development cycle for dynamic web projects. Strong in PHP OOP,
-            JavaScript, CSS, MySQL, jQuery and Bootstrap, with additional experience in
-            project management, customer relations and database-driven systems.
-          </p>
-        </div>
+                    <!-- Currency Convert Breeze -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="project-card">
+                            <div class="repo-line"><i class="bi bi-github me-1"></i> israel-007 /
+                                currency_convert_breeze</div>
+                            <h5>Currency Convert Breeze</h5>
+                            <p>PHP currency conversion library with real-time exchange rates, chainable API,
+                                session-based caching, supports multiple target currencies with JSON/array output.</p>
+                            <span class="tag">PHP</span><span class="tag">API</span><span class="tag">Currency</span>
+                            <div class="mt-2"
+                                style="background:#0b0f14;border:1px solid #202a34;border-radius:9px;padding:12px;font-size:.7rem;line-height:1.8;font-family:'JetBrains Mono',monospace;color:#b8c4d0;overflow-x:auto">
+                                <span style="color:#c792ea">$converter</span> = <span style="color:#c792ea">new</span>
+                                <span style="color:#ffcb6b">Converter</span>();<br>
+                                <span style="color:#c792ea">$result</span> = <span
+                                    style="color:#c792ea">$converter</span>-><span
+                                    style="color:#82aaff">from</span>(<span style="color:#c3e88d">'USD'</span>)<br>
+                                &nbsp;&nbsp;-><span style="color:#82aaff">to</span>([<span
+                                    style="color:#c3e88d">'EUR'</span>, <span style="color:#c3e88d">'GBP'</span>, <span
+                                    style="color:#c3e88d">'NGN'</span>])<br>
+                                &nbsp;&nbsp;-><span style="color:#82aaff">amount</span>(<span
+                                    style="color:#f78c6c">100</span>)-><span style="color:#82aaff">run</span>(<span
+                                    style="color:#c3e88d">'json'</span>);
+                            </div>
+                            <div class="mt-2"><a class="project-link"
+                                    href="https://github.com/israel-007/currency_convert_breeze" target="_blank">VIEW
+                                    REPOSITORY →</a></div>
+                        </div>
+                    </div>
 
-        <div class="cv-side-card mb-3">
-          <div class="section-label mb-3">Core skills</div>
-          <div>
-            <span class="tag">Project Management</span>
-            <span class="tag">Decision Making</span>
-            <span class="tag">Problem Solving</span>
-            <span class="tag">Innovation</span>
-            <span class="tag">Team Management</span>
-            <span class="tag">MySQL</span>
-            <span class="tag">PHP OOP</span>
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">jQuery</span>
-            <span class="tag">Bootstrap</span>
-          </div>
-        </div>
+                    <!-- Mobile ISP -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="project-card">
+                            <div class="repo-line"><i class="bi bi-github me-1"></i> israel-007 / mobile-isp</div>
+                            <h5>Mobile ISP</h5>
+                            <p>Phone number lookup library providing mobile service provider info, ISP details, country
+                                data and international formatting for Nigeria, Ghana, Egypt, South Africa.</p>
+                            <span class="tag">PHP</span><span class="tag">API</span><span class="tag">Phone Data</span>
+                            <div class="mt-2"
+                                style="background:#0b0f14;border:1px solid #202a34;border-radius:9px;padding:12px;font-size:.7rem;line-height:1.8;font-family:'JetBrains Mono',monospace;color:#b8c4d0;overflow-x:auto">
+                                <span style="color:#c792ea">require_once</span>(<span
+                                    style="color:#c3e88d">'app/autoload.php'</span>);<br>
+                                <span style="color:#c792ea">$response</span> = <span
+                                    style="color:#ffcb6b">Provider</span>::<span style="color:#82aaff">check</span>(<br>
+                                &nbsp;&nbsp;<span style="color:#c3e88d">'+2348012345678'</span><br>
+                                );<br>
+                                <span style="color:#596674">// Returns: ISP, country, dial code, intl format</span>
+                            </div>
+                            <div class="mt-2"><a class="project-link" href="https://github.com/israel-007/mobile-isp"
+                                    target="_blank">VIEW REPOSITORY →</a></div>
+                        </div>
+                    </div>
 
-        <div class="cv-side-card">
-          <div class="section-label mb-3">Education</div>
-          <div class="edu-item">
-            <strong>B.Sc. Economics</strong>
-            <span>2018 · Crawford University</span>
-          </div>
-          <div class="edu-item">
-            <strong>WAEC</strong>
-            <span>2014 · Great Foundation College</span>
-          </div>
-          <div class="edu-item">
-            <strong>Primary School Leaving Certificate</strong>
-            <span>2007 · Wesley Primary School</span>
-          </div>
-        </div>
-      </div>
-    </div>
+                    <!-- CoreX -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="project-card">
+                            <div class="repo-line"><i class="bi bi-github me-1"></i> israel-007 / CoreX</div>
+                            <h5>CoreX</h5>
+                            <p>Collection of reusable PHP utilities and developer helpers. Common abstractions for
+                                faster development and cleaner application code.</p>
+                            <span class="tag">PHP</span><span class="tag">Utilities</span><span
+                                class="tag">Helpers</span>
+                            <div class="mt-2"
+                                style="background:#0b0f14;border:1px solid #202a34;border-radius:9px;padding:12px;font-size:.7rem;line-height:1.8;font-family:'JetBrains Mono',monospace;color:#b8c4d0;overflow-x:auto">
+                                <span style="color:#c792ea">use</span> <span style="color:#ffcb6b">CoreX</span>\<span
+                                    style="color:#ffcb6b">Utilities</span>\<span
+                                    style="color:#ffcb6b">Helper</span>;<br>
+                                <span style="color:#c792ea">use</span> <span style="color:#ffcb6b">CoreX</span>\<span
+                                    style="color:#ffcb6b">Validation</span>\<span
+                                    style="color:#ffcb6b">Validator</span>;<br>
+                                <br>
+                                <span style="color:#596674">// Common utilities for cleaner code</span>
+                            </div>
+                            <div class="mt-2"><a class="project-link" href="https://github.com/israel-007"
+                                    target="_blank">VIEW ON GITHUB →</a></div>
+                        </div>
+                    </div>
 
-    <div class="mt-5 pt-4">
-      <div class="section-label">Projects / client work</div>
-      <div class="row g-3 mt-2">
-        <div class="col-md-6 col-xl-4">
-          <div class="cv-project cv-project-expanded" style="display:flex;flex-direction:column">
-            <div style="background:var(--surface-2);border-radius:9px;height:180px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.95rem;margin-bottom:15px;border:1px solid var(--line);">[Student Management System]</div>
-            <span class="project-number">01</span>
-            <span class="project-title">Student Management System</span>
-            <span class="project-client">Secondary Schools</span>
-            <p>A multi-module school management platform covering student records, hostel management, school fees, clinic management, CBT, tests and examinations, result calculation and report card management.</p>
-            <div class="project-tags"><span class="tag">Student records</span><span class="tag">Hostel</span><span class="tag">School fees</span><span class="tag">Clinic</span><span class="tag">CBT</span><span class="tag">Results</span></div>
-            <div style="margin-top:auto;padding-top:15px;border-top:1px solid var(--line)"><a href="#contact" class="btn btn-sm btn-code w-100 mt-2"><i class="bi bi-chat-dots me-1"></i>Enquire Now</a></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-4">
-          <div class="cv-project cv-project-expanded" style="display:flex;flex-direction:column">
-            <div style="background:var(--surface-2);border-radius:9px;height:180px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.95rem;margin-bottom:15px;border:1px solid var(--line);">[Client Management System]</div>
-            <span class="project-number">02</span>
-            <span class="project-title">Client Management System</span>
-            <span class="project-client">StudySpace</span>
-            <p>A client and operations management platform supporting records, role-based workflows and administrative processes for StudySpace.</p>
-            <div class="project-tags"><span class="tag">Clients</span><span class="tag">Admin</span><span class="tag">Agents</span><span class="tag">Partners</span><span class="tag">Workflows</span></div>
-            <div style="margin-top:auto;padding-top:15px;border-top:1px solid var(--line);display:flex;gap:8px"><a href="https://studyspace.com.ng" target="_blank" class="btn btn-sm btn-code flex-grow-1"><i class="bi bi-globe me-1"></i>Visit Site</a><a href="#contact" class="btn btn-sm btn-ghost flex-grow-1"><i class="bi bi-chat-dots me-1"></i>Enquire</a></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-4">
-          <div class="cv-project cv-project-expanded" style="display:flex;flex-direction:column">
-            <div style="background: url('images/travooler.jpg');background-repeat: round;border-radius:9px;height:180px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.95rem;margin-bottom:15px;border:1px solid var(--line);"> </div> <!--[Property Rental Platform]-->
-            <span class="project-number">03</span>
-            <span class="project-title">Property Rental Platform</span>
-            <span class="project-client">Travooler</span>
-            <p>A short-let property platform supporting property discovery and rental workflows, with ongoing system management, maintenance, upgrades and AI-powered website functionality.</p>
-            <div class="project-tags"><span class="tag">Short-let</span><span class="tag">Properties</span><span class="tag">Bookings</span><span class="tag">Operations</span><span class="tag">AI</span></div>
-            <div style="margin-top:auto;padding-top:15px;border-top:1px solid var(--line);display:flex;gap:8px"><a href="https://travooler.com" target="_blank" class="btn btn-sm btn-code flex-grow-1"><i class="bi bi-globe me-1"></i>Visit Site</a><a href="#contact" class="btn btn-sm btn-ghost flex-grow-1"><i class="bi bi-chat-dots me-1"></i>Enquire</a></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-4">
-          <div class="cv-project cv-project-expanded" style="display:flex;flex-direction:column">
-            <div style="background:var(--surface-2);border-radius:9px;height:180px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.95rem;margin-bottom:15px;border:1px solid var(--line);">[Study-Abroad SaaS Platform]</div>
-            <span class="project-number">04</span>
-            <span class="project-title">Study-Abroad SaaS Platform</span>
-            <span class="project-client">StudySpace</span>
-            <p>A business platform supporting study-abroad operations, including admission applications, visa application workflows and flight-ticket booking processes.</p>
-            <div class="project-tags"><span class="tag">Admissions</span><span class="tag">Visa</span><span class="tag">Flights</span><span class="tag">Applications</span></div>
-            <div style="margin-top:auto;padding-top:15px;border-top:1px solid var(--line)"><a href="#contact" class="btn btn-sm btn-code w-100 mt-2"><i class="bi bi-chat-dots me-1"></i>Enquire Now</a></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-4">
-          <div class="cv-project cv-project-expanded" style="display:flex;flex-direction:column">
-            <div style="background:var(--surface-2);border-radius:9px;height:180px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.95rem;margin-bottom:15px;border:1px solid var(--line);">[HR & Payroll System]</div>
-            <span class="project-number">05</span>
-            <span class="project-title">HR & Payroll System</span>
-            <span class="project-client">HydroDive LTD</span>
-            <p>A business HR and payroll application covering employee records, departmental payroll workflows, sequential approvals, payroll calculations and payslip management.</p>
-            <div class="project-tags"><span class="tag">Employees</span><span class="tag">Payroll</span><span class="tag">Approvals</span><span class="tag">Calculations</span><span class="tag">Payslips</span></div>
-            <div style="margin-top:auto;padding-top:15px;border-top:1px solid var(--line)"><a href="#contact" class="btn btn-sm btn-code w-100 mt-2"><i class="bi bi-chat-dots me-1"></i>Enquire Now</a></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-4">
-          <div class="cv-project cv-project-expanded" style="display:flex;flex-direction:column">
-            <div style="background:var(--surface-2);border-radius:9px;height:180px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.95rem;margin-bottom:15px;border:1px solid var(--line);">[E-Commerce Platform]</div>
-            <span class="project-number">06</span>
-            <span class="project-title">E-Commerce Platform</span>
-            <span class="project-client">Loyalty Mart & Cool Gadgets</span>
-            <p>An e-commerce platform for product presentation, customer shopping workflows and administrative management of the online store.</p>
-            <div class="project-tags"><span class="tag">Products</span><span class="tag">Shopping</span><span class="tag">Orders</span><span class="tag">Store management</span></div>
-            <div style="margin-top:auto;padding-top:15px;border-top:1px solid var(--line)"><a href="#contact" class="btn btn-sm btn-code w-100 mt-2"><i class="bi bi-chat-dots me-1"></i>Enquire Now</a></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-4">
-          <div class="cv-project cv-project-expanded" style="display:flex;flex-direction:column">
-            <div style="background:var(--surface-2);border-radius:9px;height:180px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.95rem;margin-bottom:15px;border:1px solid var(--line);">[Email Marketing Interface]</div>
-            <span class="project-number">07</span>
-            <span class="project-title">Email Marketing Interface</span>
-            <span class="project-client">StudySpace & Travooler</span>
-            <p>An email interface supporting composition, recipient handling, templates and application-driven email workflows through external email services and APIs.</p>
-            <div class="project-tags"><span class="tag">Email</span><span class="tag">Templates</span><span class="tag">Recipients</span><span class="tag">API</span></div>
-            <div style="margin-top:auto;padding-top:15px;border-top:1px solid var(--line)"><a href="#contact" class="btn btn-sm btn-code w-100 mt-2"><i class="bi bi-chat-dots me-1"></i>Enquire Now</a></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-4">
-          <div class="cv-project cv-project-expanded" style="display:flex;flex-direction:column">
-            <div style="background:var(--surface-2);border-radius:9px;height:180px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.95rem;margin-bottom:15px;border:1px solid var(--line);">[Media Platform]</div>
-            <span class="project-number">08</span>
-            <span class="project-title">Media Platform</span>
-            <span class="project-client">LoyaltyBaze</span>
-            <p>A media publishing and browsing platform for organising and presenting music, video, lyrics and other digital media content.</p>
-            <div class="project-tags"><span class="tag">Music</span><span class="tag">Video</span><span class="tag">Lyrics</span><span class="tag">Publishing</span></div>
-            <div style="margin-top:auto;padding-top:15px;border-top:1px solid var(--line)"><a href="#contact" class="btn btn-sm btn-code w-100 mt-2"><i class="bi bi-chat-dots me-1"></i>Enquire Now</a></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-4">
-          <div class="cv-project cv-project-expanded" style="display:flex;flex-direction:column">
-            <div style="background:var(--surface-2);border-radius:9px;height:180px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.95rem;margin-bottom:15px;border:1px solid var(--line);">[Loan & Proof of Funds]</div>
-            <span class="project-number">09</span>
-            <span class="project-title">Loan & Proof of Funds</span>
-            <span class="project-client">Funding Cluster</span>
-            <p>A service platform supporting customer information capture, application workflows and processes related to loan and proof-of-funds services.</p>
-            <div class="project-tags"><span class="tag">Applications</span><span class="tag">Forms</span><span class="tag">Customers</span><span class="tag">Processing</span></div>
-            <div style="margin-top:auto;padding-top:15px;border-top:1px solid var(--line)"><a href="#contact" class="btn btn-sm btn-code w-100 mt-2"><i class="bi bi-chat-dots me-1"></i>Enquire Now</a></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-4">
-          <div class="cv-project cv-project-expanded" style="display:flex;flex-direction:column">
-            <div style="background:var(--surface-2);border-radius:9px;height:180px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.95rem;margin-bottom:15px;border:1px solid var(--line);">[Library Management System]</div>
-            <span class="project-number">10</span>
-            <span class="project-title">Library Management System</span>
-            <span class="project-client">Library Operations</span>
-            <p>A library administration system for managing books, records, cataloguing and everyday library workflows.</p>
-            <div class="project-tags"><span class="tag">Books</span><span class="tag">Cataloguing</span><span class="tag">Records</span><span class="tag">Administration</span></div>
-            <div style="margin-top:auto;padding-top:15px;border-top:1px solid var(--line)"><a href="#contact" class="btn btn-sm btn-code w-100 mt-2"><i class="bi bi-chat-dots me-1"></i>Enquire Now</a></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-4">
-          <div class="cv-project cv-project-expanded" style="display:flex;flex-direction:column">
-            <div style="background:var(--surface-2);border-radius:9px;height:180px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.95rem;margin-bottom:15px;border:1px solid var(--line);">[Departmental Voting System]</div>
-            <span class="project-number">11</span>
-            <span class="project-title">Departmental Voting System</span>
-            <span class="project-client">Departmental Elections</span>
-            <p>A voting platform for managing departmental polls, voter participation, vote recording and presentation of election results.</p>
-            <div class="project-tags"><span class="tag">Voting</span><span class="tag">Voters</span><span class="tag">Polls</span><span class="tag">Results</span></div>
-            <div style="margin-top:auto;padding-top:15px;border-top:1px solid var(--line)"><a href="#contact" class="btn btn-sm btn-code w-100 mt-2"><i class="bi bi-chat-dots me-1"></i>Enquire Now</a></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-4">
-          <div class="cv-project cv-project-expanded" style="display:flex;flex-direction:column">
-            <div style="background:var(--surface-2);border-radius:9px;height:180px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.95rem;margin-bottom:15px;border:1px solid var(--line);">[Blogging Platform]</div>
-            <span class="project-number">12</span>
-            <span class="project-title">Blogging Platform</span>
-            <span class="project-client">StudySpace</span>
-            <p>A content publishing platform for creating, organising and presenting articles with categories and structured public-facing content.</p>
-            <div class="project-tags"><span class="tag">Articles</span><span class="tag">Publishing</span><span class="tag">Categories</span><span class="tag">Content</span></div>
-            <div style="margin-top:auto;padding-top:15px;border-top:1px solid var(--line)"><a href="#contact" class="btn btn-sm btn-code w-100 mt-2"><i class="bi bi-chat-dots me-1"></i>Enquire Now</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+                    <!-- Business Systems -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="project-card">
+                            <div class="repo-line"><i class="bi bi-git me-1"></i> private / product work</div>
+                            <h5>Business Systems</h5>
+                            <p>HR/payroll, property management, school systems, e-commerce, CMS, membership platforms,
+                                voting systems. Built for real workflows with database design, APIs, admin interfaces.
+                            </p>
+                            <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Laravel</span>
+                            <div class="mt-2"
+                                style="background:#0b0f14;border:1px solid #202a34;border-radius:9px;padding:12px;font-size:.7rem;line-height:1.8;font-family:'JetBrains Mono',monospace;color:#b8c4d0;overflow-x:auto">
+                                <span style="color:#596674">// Enterprise systems portfolio:</span><br>
+                                <span style="color:#596674">// HR + Payroll | E-commerce | Property</span><br>
+                                <span style="color:#596674">// Education | Admin | Membership</span><br>
+                                <span style="color:#596674">// Real databases, APIs, workflows</span>
+                            </div>
+                            <div class="mt-2"><a class="project-link" href="#contact">DISCUSS A PROJECT →</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section id="code" style="background:#0a0e13">
-  <div class="container">
-    <div class="section-label">05 / code</div>
-    <h2 class="section-title">I like expressive PHP.</h2>
-    <p class="section-desc">Reusable abstractions and fluent interfaces are a recurring theme in my work.</p>
+        <section id="engineering">
+            <div class="container">
+                <div class="section-label">03 / engineering</div>
+                <div class="row g-5 align-items-start">
+                    <div class="col-lg-5">
+                        <h2 class="section-title">Backend first.<br>Product minded.</h2>
+                        <p class="section-desc">I like taking an idea beyond a screen — into database design,
+                            application rules, APIs, validation, security and deployment.</p>
+                        <div class="row g-2 mt-3">
+                            <div class="col-6">
+                                <div class="metric"><strong>PHP</strong><span>primary language</span></div>
+                            </div>
+                            <div class="col-6">
+                                <div class="metric"><strong>API</strong><span>integration focused</span></div>
+                            </div>
+                            <div class="col-6">
+                                <div class="metric"><strong>SQL</strong><span>data driven</span></div>
+                            </div>
+                            <div class="col-6">
+                                <div class="metric"><strong>Git</strong><span>version controlled</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 offset-lg-1">
+                        <div class="arch-step">
+                            <h6>01 — ARCHITECTURE</h6>
+                            <p>Break the product into clear modules, responsibilities and reusable components.</p>
+                        </div>
+                        <div class="arch-step">
+                            <h6>02 — DATABASE</h6>
+                            <p>Model data around the actual business rules instead of forcing the product into a generic
+                                schema.</p>
+                        </div>
+                        <div class="arch-step">
+                            <h6>03 — BUSINESS LOGIC</h6>
+                            <p>Keep validation, permissions and workflows explicit and testable.</p>
+                        </div>
+                        <div class="arch-step">
+                            <h6>04 — API / UI</h6>
+                            <p>Expose clean interfaces and build a responsive frontend that works with the backend.</p>
+                        </div>
+                        <div class="arch-step">
+                            <h6>05 — SECURITY + SHIP</h6>
+                            <p>Authentication, rate limiting, CSRF protection, headers, caching and practical
+                                deployment.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <div class="code-window mt-4">
-      <div class="window-head">
-        <span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>
-        <span class="window-title">example.php</span>
-      </div>
-      <div class="code-body">
-        <div><span class="ln">01</span><span class="kw">&lt;?php</span></div>
-        <div><span class="ln">02</span></div>
-        <div><span class="ln">03</span><span class="var">$users</span> = <span class="type">User</span>::<span class="fn">query</span>()</div>
-        <div><span class="ln">04</span>&nbsp;&nbsp;-><span class="fn">where</span>(<span class="str">'active'</span>, <span class="num">true</span>)</div>
-        <div><span class="ln">05</span>&nbsp;&nbsp;-><span class="fn">with</span>([<span class="str">'department'</span>, <span class="str">'roles'</span>])</div>
-        <div><span class="ln">06</span>&nbsp;&nbsp;-><span class="fn">orderBy</span>(<span class="str">'name'</span>)</div>
-        <div><span class="ln">07</span>&nbsp;&nbsp;-><span class="fn">get</span>();</div>
-        <div><span class="ln">08</span></div>
-        <div><span class="ln">09</span><span class="comment">// Build once. Reuse everywhere.</span></div>
-        <div><span class="ln">10</span><span class="kw">foreach</span> (<span class="var">$users</span> <span class="kw">as</span> <span class="var">$user</span>) {</div>
-        <div><span class="ln">11</span>&nbsp;&nbsp;<span class="fn">dispatch</span>(<span class="kw">new</span> <span class="type">SyncUser</span>(<span class="var">$user</span>));</div>
-        <div><span class="ln">12</span>}</div>
-      </div>
-    </div>
 
-    <div class="terminal mt-3">
-      <div class="window-head">
-        <span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>
-        <span class="window-title">terminal</span>
-      </div>
-      <div class="terminal-body">
-        <div><span class="prompt">$</span> composer install</div>
-        <div class="terminal-ok">✓ Dependencies resolved</div>
-        <div><span class="prompt">$</span> php artisan migrate</div>
-        <div class="terminal-ok">✓ Database migrations completed</div>
-        <div><span class="prompt">$</span> php artisan serve</div>
-        <div class="terminal-muted">→ Application running on localhost</div>
-      </div>
-    </div>
-    
-  </div>
-</section>
+        <section id="cv">
+            <div class="container">
+                <div class="section-label">04 / cv</div>
+                <div class="row g-5">
+                    <div class="col-lg-8">
+                        <h2 class="section-title">Experience beyond the code.</h2>
+                        <p class="section-desc">
+                            A developer profile built from hands-on product development, system analysis,
+                            project delivery, database work and working directly with users and clients.
+                        </p>
 
-<section id="contact">
-  <div class="container">
-    <div class="contact-card text-center">
-      <div class="section-label">06 / contact</div>
-      <h2 class="section-title mt-2">Have a system to build?</h2>
-      <p class="section-desc mx-auto">Let's talk about the backend, the product and the code that needs to make it work.</p>
-      <div class="d-flex justify-content-center flex-wrap gap-2 mt-4">
-        <a href="https://github.com/israel-007" target="_blank" class="btn btn-code"><i class="bi bi-github me-2"></i>Open GitHub</a>
-        <a href="#home" class="btn btn-ghost">Back to top <i class="bi bi-arrow-up ms-1"></i></a>
-      </div>
-    </div>
-  </div>
-</section>
 
-</main>
+                        <div class="mt-5">
+                            <div class="d-flex justify-content-between align-items-start mb-4">
+                                <div>
+                                    <span class="tag">2025 — PRESENT</span>
+                                    <h4 class="mt-3 mb-1 fw-bold">Senior Developer</h4>
+                                    <div class="mono small" style="color:var(--green)">Travooler · Nigeria</div>
+                                </div>
+                            </div>
+                            <ul class="cv-list">
+                                <li>Build, manage, maintain and continuously upgrade Travooler's short-let property
+                                    platform and supporting systems.</li>
+                                <li>Develop and improve platform features and internal workflows while translating
+                                    business requirements into practical technical solutions.</li>
+                                <li>Maintain production systems, troubleshoot technical issues, implement fixes and
+                                    deliver ongoing upgrades as the product and business evolve.</li>
+                                <li>Develop, manage and refine the AI that powers the Travooler website, including
+                                    AI-driven functionality, application logic, integrations and continuous
+                                    improvements.</li>
+                                <li>Support the onboarding of new staff by providing technical guidance and helping team
+                                    members understand relevant systems, workflows and tools.</li>
+                                <li>Work with the wider team to improve system reliability, usability, automation and
+                                    the digital experience for customers and staff.</li>
+                            </ul>
+                        </div>
 
-<footer>
-  <div class="container d-flex justify-content-between align-items-center flex-wrap gap-2">
-    <span class="mono">© <span id="year"></span> Abimbolu Oluyemi</span>
-    <span class="mono">PHP · Laravel · APIs · Systems</span>
-  </div>
-</footer>
+                        <hr class="cv-divider">
+                        <div class="mt-5">
+                            <div class="d-flex justify-content-between align-items-start mb-4">
+                                <div>
+                                    <span class="tag">2023 — 2025</span>
+                                    <h4 class="mt-3 mb-1 fw-bold">Senior Analyst</h4>
+                                    <div class="mono small" style="color:var(--green)">StudySpace LTD · Ogun State,
+                                        Nigeria</div>
+                                </div>
+                            </div>
+                            <ul class="cv-list">
+                                <li>Performed system analysis, documentation, testing, implementation and user support
+                                    for platform transitions.</li>
+                                <li>Recommended process improvements to identify, analyze and resolve constraints and
+                                    challenges.</li>
+                                <li>Enhanced interfaces to promote better functionality and user experience.</li>
+                                <li>Evaluated customer needs and feedback to drive product and service improvements.
+                                </li>
+                                <li>Developed a SaaS application for managing internal admission applications, visa
+                                    applications and flight-ticket bookings for study-abroad agencies.</li>
+                                <li>Worked with staff and management on compliance, documentation and organizational
+                                    processes.</li>
+                            </ul>
+                        </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/script.js"></script>
+                        <hr class="cv-divider">
+
+                        <div class="d-flex justify-content-between align-items-start mb-4">
+                            <div>
+                                <span class="tag">2021 — 2023</span>
+                                <h4 class="mt-3 mb-1 fw-bold">Full Stack Web Developer</h4>
+                                <div class="mono small" style="color:var(--green)">StudySpace LTD · Ogun State, Nigeria
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="cv-list">
+                            <li>Developed back-end components connecting applications with web services.</li>
+                            <li>Built server-side and client-side applications using PHP, HTML, CSS, JavaScript and
+                                jQuery.</li>
+                            <li>Integrated disparate systems and supported data migration while maintaining technical
+                                consistency.</li>
+                            <li>Worked with clients and cross-functional teams to design new features and functionality.
+                            </li>
+                            <li>Built internal content-management systems and content-delivery applications from client
+                                requirements.</li>
+                            <li>Modified, tested and maintained MySQL database schemas.</li>
+                            <li>Planned, coded and deployed web applications using PHP, MySQL and JavaScript.</li>
+                            <li>Troubleshot technical issues in production environments and integrated third-party APIs.
+                            </li>
+                        </ul>
+
+                        <hr class="cv-divider">
+
+                        <div class="d-flex justify-content-between align-items-start mb-4">
+                            <div>
+                                <span class="tag">2020 — 2021</span>
+                                <h4 class="mt-3 mb-1 fw-bold">Teacher</h4>
+                                <div class="mono small" style="color:var(--green)">Jesmish College · NYSC · Osun State,
+                                    Nigeria</div>
+                            </div>
+                        </div>
+                        <ul class="cv-list">
+                            <li>Planned and implemented integrated lessons aligned with national standards.</li>
+                            <li>Used multiple teaching strategies and engaging activities to improve student
+                                participation.</li>
+                            <li>Designed and administered tests and evaluated student assignments and coursework.</li>
+                            <li>Mentored student teachers on classroom management, lesson planning and activity
+                                organization.</li>
+                            <li>Maintained student progress and attendance records in a database for accurate historical
+                                tracking.</li>
+                            <li>Conducted performance evaluations and provided guidance for areas requiring improvement.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="cv-side-card mb-3">
+                            <div class="section-label mb-3">Profile</div>
+                            <h5 class="fw-bold">Abimbolu Israel Oluyemi</h5>
+                            <p class="cv-muted">PHP Full-Stack Developer</p>
+                            <div class="cv-contact">
+                                <div><i class="bi bi-geo-alt"></i><span>Remote</span></div>
+                                <div><i class="bi bi-envelope"></i><a
+                                        href="mailto:abimboluoluyemi@gmail.com">abimboluoluyemi@gmail.com</a></div>
+                                <div><i class="bi bi-github"></i><a href="https://github.com/israel-007"
+                                        target="_blank">github.com/israel-007</a></div>
+                                <div><i class="bi bi-telephone"></i><span>Phone available on request</span></div>
+                            </div>
+                        </div>
+
+                        <div class="cv-side-card mb-3">
+                            <div class="section-label mb-3">Summary</div>
+                            <p class="cv-muted">
+                                Web developer specializing in front-end and back-end development, with experience
+                                across the full development cycle for dynamic web projects. Strong in PHP OOP,
+                                JavaScript, CSS, MySQL, jQuery and Bootstrap, with additional experience in
+                                project management, customer relations and database-driven systems.
+                            </p>
+                        </div>
+
+                        <div class="cv-side-card mb-3">
+                            <div class="section-label mb-3">Core skills</div>
+                            <div>
+                                <span class="tag">Project Management</span>
+                                <span class="tag">Decision Making</span>
+                                <span class="tag">Problem Solving</span>
+                                <span class="tag">Innovation</span>
+                                <span class="tag">Team Management</span>
+                                <span class="tag">MySQL</span>
+                                <span class="tag">PHP OOP</span>
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">jQuery</span>
+                                <span class="tag">Bootstrap</span>
+                            </div>
+                        </div>
+
+                        <div class="cv-side-card">
+                            <div class="section-label mb-3">Education</div>
+                            <div class="edu-item">
+                                <strong>B.Sc. Economics</strong>
+                                <span>2018 · Crawford University</span>
+                            </div>
+                            <div class="edu-item">
+                                <strong>WAEC</strong>
+                                <span>2014 · Great Foundation College</span>
+                            </div>
+                            <div class="edu-item">
+                                <strong>Primary School Leaving Certificate</strong>
+                                <span>2007 · Wesley Primary School</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5 pt-4">
+                    <div class="section-label">Projects / client work</div>
+                    <div class="row g-3 mt-2">
+                        <div class="col-md-6 col-xl-4">
+                            <div class="cv-project cv-project-expanded" style="display:flex;flex-direction:column">
+                                <div
+                                    style="background:var(--surface-2);border-radius:9px;height:180px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.95rem;margin-bottom:15px;border:1px solid var(--line);">
+                                    [Student Management System]</div>
+                                <span class="project-number">01</span>
+                                <span class="project-title">Student Management System</span>
+                                <span class="project-client">Secondary Schools</span>
+                                <p>A multi-module school management platform covering student records, hostel
+                                    management, school fees, clinic management, CBT, tests and examinations, result
+                                    calculation and report card management.</p>
+                                <div class="project-tags"><span class="tag">Student records</span><span
+                                        class="tag">Hostel</span><span class="tag">School fees</span><span
+                                        class="tag">Clinic</span><span class="tag">CBT</span><span
+                                        class="tag">Results</span></div>
+                                <div style="margin-top:auto;padding-top:15px;border-top:1px solid var(--line)"><a
+                                        href="#contact" class="btn btn-sm btn-code w-100 mt-2"><i
+                                            class="bi bi-chat-dots me-1"></i>Enquire Now</a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4">
+                            <div class="cv-project cv-project-expanded" style="display:flex;flex-direction:column">
+                                <div
+                                    style="background:var(--surface-2);border-radius:9px;height:180px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.95rem;margin-bottom:15px;border:1px solid var(--line);">
+                                    [Client Management System]</div>
+                                <span class="project-number">02</span>
+                                <span class="project-title">Client Management System</span>
+                                <span class="project-client">StudySpace</span>
+                                <p>A client and operations management platform supporting records, role-based workflows
+                                    and administrative processes for StudySpace.</p>
+                                <div class="project-tags"><span class="tag">Clients</span><span
+                                        class="tag">Admin</span><span class="tag">Agents</span><span
+                                        class="tag">Partners</span><span class="tag">Workflows</span></div>
+                                <div
+                                    style="margin-top:auto;padding-top:15px;border-top:1px solid var(--line);display:flex;gap:8px">
+                                    <a href="https://studyspace.com.ng" target="_blank"
+                                        class="btn btn-sm btn-code flex-grow-1"><i class="bi bi-globe me-1"></i>Visit
+                                        Site</a><a href="#contact" class="btn btn-sm btn-ghost flex-grow-1"><i
+                                            class="bi bi-chat-dots me-1"></i>Enquire</a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4">
+                            <div class="cv-project cv-project-expanded" style="display:flex;flex-direction:column">
+                                <div
+                                    style="background: url('images/travooler.jpg');background-repeat: round;border-radius:9px;height:180px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.95rem;margin-bottom:15px;border:1px solid var(--line);">
+                                </div> <!--[Property Rental Platform]-->
+                                <span class="project-number">03</span>
+                                <span class="project-title">Property Rental Platform</span>
+                                <span class="project-client">Travooler</span>
+                                <p>A short-let property platform supporting property discovery and rental workflows,
+                                    with ongoing system management, maintenance, upgrades and AI-powered website
+                                    functionality.</p>
+                                <div class="project-tags"><span class="tag">Short-let</span><span
+                                        class="tag">Properties</span><span class="tag">Bookings</span><span
+                                        class="tag">Operations</span><span class="tag">AI</span></div>
+                                <div
+                                    style="margin-top:auto;padding-top:15px;border-top:1px solid var(--line);display:flex;gap:8px">
+                                    <a href="https://travooler.com" target="_blank"
+                                        class="btn btn-sm btn-code flex-grow-1"><i class="bi bi-globe me-1"></i>Visit
+                                        Site</a><a href="#contact" class="btn btn-sm btn-ghost flex-grow-1"><i
+                                            class="bi bi-chat-dots me-1"></i>Enquire</a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4">
+                            <div class="cv-project cv-project-expanded" style="display:flex;flex-direction:column">
+                                <div
+                                    style="background:var(--surface-2);border-radius:9px;height:180px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.95rem;margin-bottom:15px;border:1px solid var(--line);">
+                                    [Study-Abroad SaaS Platform]</div>
+                                <span class="project-number">04</span>
+                                <span class="project-title">Study-Abroad SaaS Platform</span>
+                                <span class="project-client">StudySpace</span>
+                                <p>A business platform supporting study-abroad operations, including admission
+                                    applications, visa application workflows and flight-ticket booking processes.</p>
+                                <div class="project-tags"><span class="tag">Admissions</span><span
+                                        class="tag">Visa</span><span class="tag">Flights</span><span
+                                        class="tag">Applications</span></div>
+                                <div style="margin-top:auto;padding-top:15px;border-top:1px solid var(--line)"><a
+                                        href="#contact" class="btn btn-sm btn-code w-100 mt-2"><i
+                                            class="bi bi-chat-dots me-1"></i>Enquire Now</a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4">
+                            <div class="cv-project cv-project-expanded" style="display:flex;flex-direction:column">
+                                <div
+                                    style="background:var(--surface-2);border-radius:9px;height:180px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.95rem;margin-bottom:15px;border:1px solid var(--line);">
+                                    [HR & Payroll System]</div>
+                                <span class="project-number">05</span>
+                                <span class="project-title">HR & Payroll System</span>
+                                <span class="project-client">HydroDive LTD</span>
+                                <p>A business HR and payroll application covering employee records, departmental payroll
+                                    workflows, sequential approvals, payroll calculations and payslip management.</p>
+                                <div class="project-tags"><span class="tag">Employees</span><span
+                                        class="tag">Payroll</span><span class="tag">Approvals</span><span
+                                        class="tag">Calculations</span><span class="tag">Payslips</span></div>
+                                <div style="margin-top:auto;padding-top:15px;border-top:1px solid var(--line)"><a
+                                        href="#contact" class="btn btn-sm btn-code w-100 mt-2"><i
+                                            class="bi bi-chat-dots me-1"></i>Enquire Now</a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4">
+                            <div class="cv-project cv-project-expanded" style="display:flex;flex-direction:column">
+                                <div
+                                    style="background:var(--surface-2);border-radius:9px;height:180px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.95rem;margin-bottom:15px;border:1px solid var(--line);">
+                                    [E-Commerce Platform]</div>
+                                <span class="project-number">06</span>
+                                <span class="project-title">E-Commerce Platform</span>
+                                <span class="project-client">Loyalty Mart & Cool Gadgets</span>
+                                <p>An e-commerce platform for product presentation, customer shopping workflows and
+                                    administrative management of the online store.</p>
+                                <div class="project-tags"><span class="tag">Products</span><span
+                                        class="tag">Shopping</span><span class="tag">Orders</span><span
+                                        class="tag">Store management</span></div>
+                                <div style="margin-top:auto;padding-top:15px;border-top:1px solid var(--line)"><a
+                                        href="#contact" class="btn btn-sm btn-code w-100 mt-2"><i
+                                            class="bi bi-chat-dots me-1"></i>Enquire Now</a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4">
+                            <div class="cv-project cv-project-expanded" style="display:flex;flex-direction:column">
+                                <div
+                                    style="background:var(--surface-2);border-radius:9px;height:180px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.95rem;margin-bottom:15px;border:1px solid var(--line);">
+                                    [Email Marketing Interface]</div>
+                                <span class="project-number">07</span>
+                                <span class="project-title">Email Marketing Interface</span>
+                                <span class="project-client">StudySpace & Travooler</span>
+                                <p>An email interface supporting composition, recipient handling, templates and
+                                    application-driven email workflows through external email services and APIs.</p>
+                                <div class="project-tags"><span class="tag">Email</span><span
+                                        class="tag">Templates</span><span class="tag">Recipients</span><span
+                                        class="tag">API</span></div>
+                                <div style="margin-top:auto;padding-top:15px;border-top:1px solid var(--line)"><a
+                                        href="#contact" class="btn btn-sm btn-code w-100 mt-2"><i
+                                            class="bi bi-chat-dots me-1"></i>Enquire Now</a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4">
+                            <div class="cv-project cv-project-expanded" style="display:flex;flex-direction:column">
+                                <div
+                                    style="background:var(--surface-2);border-radius:9px;height:180px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.95rem;margin-bottom:15px;border:1px solid var(--line);">
+                                    [Media Platform]</div>
+                                <span class="project-number">08</span>
+                                <span class="project-title">Media Platform</span>
+                                <span class="project-client">LoyaltyBaze</span>
+                                <p>A media publishing and browsing platform for organising and presenting music, video,
+                                    lyrics and other digital media content.</p>
+                                <div class="project-tags"><span class="tag">Music</span><span
+                                        class="tag">Video</span><span class="tag">Lyrics</span><span
+                                        class="tag">Publishing</span></div>
+                                <div style="margin-top:auto;padding-top:15px;border-top:1px solid var(--line)"><a
+                                        href="#contact" class="btn btn-sm btn-code w-100 mt-2"><i
+                                            class="bi bi-chat-dots me-1"></i>Enquire Now</a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4">
+                            <div class="cv-project cv-project-expanded" style="display:flex;flex-direction:column">
+                                <div
+                                    style="background:var(--surface-2);border-radius:9px;height:180px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.95rem;margin-bottom:15px;border:1px solid var(--line);">
+                                    [Loan & Proof of Funds]</div>
+                                <span class="project-number">09</span>
+                                <span class="project-title">Loan & Proof of Funds</span>
+                                <span class="project-client">Funding Cluster</span>
+                                <p>A service platform supporting customer information capture, application workflows and
+                                    processes related to loan and proof-of-funds services.</p>
+                                <div class="project-tags"><span class="tag">Applications</span><span
+                                        class="tag">Forms</span><span class="tag">Customers</span><span
+                                        class="tag">Processing</span></div>
+                                <div style="margin-top:auto;padding-top:15px;border-top:1px solid var(--line)"><a
+                                        href="#contact" class="btn btn-sm btn-code w-100 mt-2"><i
+                                            class="bi bi-chat-dots me-1"></i>Enquire Now</a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4">
+                            <div class="cv-project cv-project-expanded" style="display:flex;flex-direction:column">
+                                <div
+                                    style="background:var(--surface-2);border-radius:9px;height:180px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.95rem;margin-bottom:15px;border:1px solid var(--line);">
+                                    [Library Management System]</div>
+                                <span class="project-number">10</span>
+                                <span class="project-title">Library Management System</span>
+                                <span class="project-client">Library Operations</span>
+                                <p>A library administration system for managing books, records, cataloguing and everyday
+                                    library workflows.</p>
+                                <div class="project-tags"><span class="tag">Books</span><span
+                                        class="tag">Cataloguing</span><span class="tag">Records</span><span
+                                        class="tag">Administration</span></div>
+                                <div style="margin-top:auto;padding-top:15px;border-top:1px solid var(--line)"><a
+                                        href="#contact" class="btn btn-sm btn-code w-100 mt-2"><i
+                                            class="bi bi-chat-dots me-1"></i>Enquire Now</a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4">
+                            <div class="cv-project cv-project-expanded" style="display:flex;flex-direction:column">
+                                <div
+                                    style="background:var(--surface-2);border-radius:9px;height:180px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.95rem;margin-bottom:15px;border:1px solid var(--line);">
+                                    [Departmental Voting System]</div>
+                                <span class="project-number">11</span>
+                                <span class="project-title">Departmental Voting System</span>
+                                <span class="project-client">Departmental Elections</span>
+                                <p>A voting platform for managing departmental polls, voter participation, vote
+                                    recording and presentation of election results.</p>
+                                <div class="project-tags"><span class="tag">Voting</span><span
+                                        class="tag">Voters</span><span class="tag">Polls</span><span
+                                        class="tag">Results</span></div>
+                                <div style="margin-top:auto;padding-top:15px;border-top:1px solid var(--line)"><a
+                                        href="#contact" class="btn btn-sm btn-code w-100 mt-2"><i
+                                            class="bi bi-chat-dots me-1"></i>Enquire Now</a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4">
+                            <div class="cv-project cv-project-expanded" style="display:flex;flex-direction:column">
+                                <div
+                                    style="background:var(--surface-2);border-radius:9px;height:180px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.95rem;margin-bottom:15px;border:1px solid var(--line);">
+                                    [Blogging Platform]</div>
+                                <span class="project-number">12</span>
+                                <span class="project-title">Blogging Platform</span>
+                                <span class="project-client">StudySpace</span>
+                                <p>A content publishing platform for creating, organising and presenting articles with
+                                    categories and structured public-facing content.</p>
+                                <div class="project-tags"><span class="tag">Articles</span><span
+                                        class="tag">Publishing</span><span class="tag">Categories</span><span
+                                        class="tag">Content</span></div>
+                                <div style="margin-top:auto;padding-top:15px;border-top:1px solid var(--line)"><a
+                                        href="#contact" class="btn btn-sm btn-code w-100 mt-2"><i
+                                            class="bi bi-chat-dots me-1"></i>Enquire Now</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="code" style="background:#0a0e13">
+            <div class="container">
+                <div class="section-label">05 / code</div>
+                <h2 class="section-title">I like expressive PHP.</h2>
+                <p class="section-desc">Reusable abstractions and fluent interfaces are a recurring theme in my work.
+                </p>
+
+                <div class="code-window mt-4">
+                    <div class="window-head">
+                        <span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>
+                        <span class="window-title">example.php</span>
+                    </div>
+                    <div class="code-body">
+                        <div><span class="ln">01</span><span class="kw">&lt;?php</span></div>
+                        <div><span class="ln">02</span></div>
+                        <div><span class="ln">03</span><span class="var">$users</span> = <span
+                                class="type">User</span>::<span class="fn">query</span>()</div>
+                        <div><span class="ln">04</span>&nbsp;&nbsp;-><span class="fn">where</span>(<span
+                                class="str">'active'</span>, <span class="num">true</span>)</div>
+                        <div><span class="ln">05</span>&nbsp;&nbsp;-><span class="fn">with</span>([<span
+                                class="str">'department'</span>, <span class="str">'roles'</span>])</div>
+                        <div><span class="ln">06</span>&nbsp;&nbsp;-><span class="fn">orderBy</span>(<span
+                                class="str">'name'</span>)</div>
+                        <div><span class="ln">07</span>&nbsp;&nbsp;-><span class="fn">get</span>();</div>
+                        <div><span class="ln">08</span></div>
+                        <div><span class="ln">09</span><span class="comment">// Build once. Reuse everywhere.</span>
+                        </div>
+                        <div><span class="ln">10</span><span class="kw">foreach</span> (<span class="var">$users</span>
+                            <span class="kw">as</span> <span class="var">$user</span>) {</div>
+                        <div><span class="ln">11</span>&nbsp;&nbsp;<span class="fn">dispatch</span>(<span
+                                class="kw">new</span> <span class="type">SyncUser</span>(<span
+                                class="var">$user</span>));</div>
+                        <div><span class="ln">12</span>}</div>
+                    </div>
+                </div>
+
+                <div class="terminal mt-3">
+                    <div class="window-head">
+                        <span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>
+                        <span class="window-title">terminal</span>
+                    </div>
+                    <div class="terminal-body">
+                        <div><span class="prompt">$</span> composer install</div>
+                        <div class="terminal-ok">✓ Dependencies resolved</div>
+                        <div><span class="prompt">$</span> php artisan migrate</div>
+                        <div class="terminal-ok">✓ Database migrations completed</div>
+                        <div><span class="prompt">$</span> php artisan serve</div>
+                        <div class="terminal-muted">→ Application running on localhost</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <div class="contact-card text-center">
+                    <div class="section-label">06 / contact</div>
+                    <h2 class="section-title mt-2">Have a system to build?</h2>
+                    <p class="section-desc mx-auto">Let's talk about the backend, the product and the code that needs to
+                        make it work.</p>
+                    <div class="d-flex justify-content-center flex-wrap gap-2 mt-4">
+                        <a href="https://github.com/israel-007" target="_blank" class="btn btn-code"><i
+                                class="bi bi-github me-2"></i>Open GitHub</a>
+                        <a href="#home" class="btn btn-ghost">Back to top <i class="bi bi-arrow-up ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container d-flex justify-content-between align-items-center flex-wrap gap-2">
+            <span class="mono">© <span id="year"></span> Abimbolu Oluyemi</span>
+            <span class="mono">PHP · Laravel · APIs · Systems</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
+
 </html>
