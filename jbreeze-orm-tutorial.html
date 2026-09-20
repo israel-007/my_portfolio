@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>JBreeze ORM Tutorial - Eloquent-Style JSON ORM</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* JBreeze ORM Page Specific Styles */
+        .hero.jbreeze-orm-hero {
+            background: linear-gradient(135deg, rgba(85, 230, 165, 0.05) 0%, rgba(112, 167, 255, 0.03) 100%);
+        }
+
+        .method-card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 9px;
+            padding: 20px;
+            margin: 20px 0;
+            transition: all 0.25s ease;
+        }
+
+        .method-card:hover {
+            border-color: #354352;
+            transform: translateY(-2px);
+        }
+
+        .method-card h4 {
+            color: var(--green);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .method-signature {
+            background: #0b0f14;
+            border-left: 3px solid var(--green);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 6px;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.9rem;
+            color: #b8c4d0;
+            overflow-x: auto;
+        }
+
+        .parameter-list {
+            background: var(--surface-2);
+            border-left: 2px solid var(--blue);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+
+        .parameter-list strong {
+            color: var(--blue);
+            display: block;
+            margin-top: 10px;
+        }
+
+        .parameter-list strong:first-child {
+            margin-top: 0;
+        }
+
+        .parameter-list p {
+            margin: 5px 0 0 0;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* Code Example with Response */
+        .code-with-response {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .code-example-side,
+        .code-response-side {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .code-example-side .code-block,
+        .code-response-side .code-block {
+            margin: 0;
+            flex: 1;
+        }
+
+        .response-label {
+            color: var(--green);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .response-output {
+            background: #0b0f14;
+            border: 1px solid #202a34;
+            border-radius: 9px;
+            padding: 15px;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.8rem;
+            color: #a8e6c3;
+            line-height: 1.6;
+            overflow-x: auto;
+            max-height: 400px;
+        }
+
+        .response-output .json-key {
+            color: #70a7ff;
+        }
+
+        .response-output .json-string {
+            color: #ffb86b;
+        }
+
+        .response-output .json-number {
+            color: #b892ff;
+        }
+
+        .response-output .json-bool {
+            color: #55e6a5;
+        }
+
+        .schema-table {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 9px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .schema-table table {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .schema-table th {
+            background: var(--surface-2);
+            color: var(--green);
+            font-weight: 600;
+            padding: 12px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .schema-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--line);
+            color: var(--muted);
+        }
+
+        .schema-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .schema-table td:first-child {
+            color: var(--blue);
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 992px) {
+            .code-with-response {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .example-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--line);
+        }
+
+        .example-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .example-section p {
+            color: var(--muted);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .setup-block {
+            background: var(--surface-2);
+            border: 1px solid var(--line);
+            border-radius: 9px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .setup-block h4 {
+            color: var(--green);
+            margin-bottom: 15px;
+        }
+
+        .setup-block .code-block {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar (Reused from portfolio) -->
+    <nav class="navbar navbar-expand-md fixed-top">
+        <div class="container py-2">
+            <a class="navbar-brand mono" href="index">~/Oluyemi<span class="brand-dot">_</span></a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#nav">
+                <i class="bi bi-list text-white fs-4"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav ms-auto align-items-md-center gap-md-3">
+                    <li><a class="nav-link" href="index">Home</a></li>
+                    <li><a class="nav-link" href="#setup">Setup</a></li>
+                    <li><a class="nav-link" href="#usage">Usage</a></li>
+                    <li><a class="nav-link" href="#schema">Schema</a></li>
+                    <li><a class="nav-link" href="#advanced">Advanced</a></li>
+                    <li><a class="nav-link" href="jbreeze-tutorial.html" style="color: #70a7ff; font-size: 0.9rem;">← Core API</a></li>
+                    <li><a class="btn btn-sm btn-ghost mono ms-md-2" href="https://github.com/israel-007/JBreeze" target="_blank">
+                        <i class="bi bi-github me-1"></i> GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero jbreeze-orm-hero grid-bg">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <div class="eyebrow">
+                        <span class="pulse"></span>
+                        Eloquent-Style ORM
+                    </div>
+                    <h1>JBreeze ORM</h1>
+                    <p class="hero-copy">
+                        A fluent, schema-validated ORM for JSON data. Built on top of JBreeze,
+                        it adds model-based querying, automatic validation, and structured data management with an
+                        elegant API.
+                    </p>
+                    <div class="mt-4">
+                        <a href="#setup" class="btn btn-code me-3">Get Started</a>
+                        <a href="https://github.com/israel-007/JBreeze" class="btn btn-ghost" target="_blank">
+                            <i class="bi bi-github me-1"></i> GitHub Repository
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Features Section -->
+        <section style="background:#0a0e13">
+            <div class="container">
+                <div class="section-label">00 / Overview</div>
+                <h2 class="section-title">Why JBreeze ORM?</h2>
+
+                <div class="row g-4 mt-4">
+                    <div class="col-lg-6">
+                        <div class="stack-card">
+                            <div class="stack-icon"><i class="bi bi-diagram-3"></i></div>
+                            <h6>Model-Based Queries</h6>
+                            <p>Define models with schemas and query them using a fluent API similar to Eloquent.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="stack-card">
+                            <div class="stack-icon"><i class="bi bi-shield-check"></i></div>
+                            <h6>Schema Validation</h6>
+                            <p>Automatic validation of data types, required fields, allowed values, and more.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="stack-card">
+                            <div class="stack-icon"><i class="bi bi-boxes"></i></div>
+                            <h6>Nested Fields</h6>
+                            <p>Support for deeply nested data using dot notation (address.city, meta.tags).</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="stack-card">
+                            <div class="stack-icon"><i class="bi bi-server"></i></div>
+                            <h6>Remote & Local</h6>
+                            <p>Load JSON from files or remote URLs. Works with any JSON source.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Setup Section -->
+        <section id="setup">
+            <div class="container">
+                <div class="section-label">01 / Getting Started</div>
+                <h2 class="section-title">Setup & Configuration</h2>
+
+                <h3>Installation</h3>
+                <p class="section-desc">Install via Composer (same as JBreeze):</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>
+                        <span class="window-title">bash</span>
+                    </div>
+                    <div class="code-body">
+                        <div><span class="kw">composer require</span> <span class="str">jbreeze/jbreeze</span></div>
+                    </div>
+                </div>
+
+                <h3 class="mt-5">Project Structure</h3>
+                <p class="section-desc">Organize your project with dedicated folders for models and JSON files:</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>
+                        <span class="window-title">bash</span>
+                    </div>
+                    <div class="code-body">
+                        <div>project/</div>
+                        <div>├── models/ <span class="comment"># Your model classes</span></div>
+                        <div>│ └── Users.php</div>
+                        <div>├── tables/ <span class="comment"># JSON data files</span></div>
+                        <div>│ └── users.json</div>
+                        <div>└── app.php</div>
+                    </div>
+                </div>
+
+                <h3 class="mt-5">Initialize Registry</h3>
+                <p class="section-desc">In your main application file, initialize the Registry with your custom folders:
+                </p>
+
+                <div class="code-with-response">
+                    <div class="code-example-side">
+                        <div class="code-block">
+                            <div class="code-header"><span class="window-dot"></span><span
+                                    class="window-dot"></span><span class="window-dot"></span><span
+                                    class="window-title">php</span></div>
+                            <div class="code-body">
+                                <div><span class="kw">require</span> <span class="str">'vendor/autoload.php'</span>;
+                                </div>
+                                <div></div>
+                                <div><span class="kw">use</span> <span class="type">Registry</span>\<span
+                                        class="type">Registry</span>;</div>
+                                <div></div>
+                                <div><span class="type">Registry</span>::<span class="fn">initTables</span>(</div>
+                                <div>&nbsp;&nbsp;<span class="str">__DIR__</span> . <span class="str">'/models'</span>,
+                                </div>
+                                <div>&nbsp;&nbsp;<span class="str">__DIR__</span> . <span class="str">'/tables'</span>
+                                </div>
+                                <div>);</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code-response-side">
+                        <div class="response-label"><i class="bi bi-arrow-right"></i> Result</div>
+                        <div class="response-output">
+                            Registry initialized.<br>
+                            <span class="json-string">Models folder:</span> ./models<br>
+                            <span class="json-string">Tables folder:</span> ./tables
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="mt-5">Define a Model (Users.php)</h3>
+                <p class="section-desc">Create a model class with schema validation:</p>
+
+                <div class="code-with-response">
+                    <div class="code-example-side">
+                        <div class="code-block">
+                            <div class="code-header"><span class="window-dot"></span><span
+                                    class="window-dot"></span><span class="window-dot"></span><span
+                                    class="window-title">php</span></div>
+                            <div class="code-body">
+                                <div><span class="kw">namespace</span> <span class="type">App\Models</span>;</div>
+                                <div></div>
+                                <div><span class="kw">use</span> <span class="type">JB_Model</span>\<span
+                                        class="type">JB_Model</span>;</div>
+                                <div></div>
+                                <div><span class="kw">class</span> <span class="type">Users</span> <span
+                                        class="kw">extends</span> <span class="type">JB_Model</span></div>
+                                <div>{</div>
+                                <div>&nbsp;&nbsp;<span class="kw">protected static</span> <span
+                                        class="var">$tableName</span> = <span class="str">"users"</span>;</div>
+                                <div></div>
+                                <div>&nbsp;&nbsp;<span class="kw">public static</span> <span class="var">$schema</span>
+                                    = [</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">'id'</span> => [<span
+                                        class="str">'type'</span> => <span class="str">'int'</span>, <span
+                                        class="str">'primary_key'</span> => <span class="kw">true</span>],</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">'name'</span> => [<span
+                                        class="str">'type'</span> => <span class="str">'str'</span>, <span
+                                        class="str">'required'</span> => <span class="kw">true</span>],</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">'email'</span> => [<span
+                                        class="str">'type'</span> => <span class="str">'str'</span>, <span
+                                        class="str">'required'</span> => <span class="kw">true</span>],</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">'age'</span> => [<span
+                                        class="str">'type'</span> => <span class="str">'int'</span>],</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">'created_at'</span> => [<span
+                                        class="str">'type'</span> => <span class="str">'mixed'</span>, <span
+                                        class="str">'default'</span> => <span class="str">'NOW()'</span>]</div>
+                                <div>&nbsp;&nbsp;];</div>
+                                <div>}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code-response-side">
+                        <div class="response-label"><i class="bi bi-arrow-right"></i> Schema Applied</div>
+                        <div class="response-output">
+                            <span class="json-key">id:</span> auto-incremented integer<br>
+                            <span class="json-key">name:</span> required string<br>
+                            <span class="json-key">email:</span> required string<br>
+                            <span class="json-key">age:</span> optional integer<br>
+                            <span class="json-key">created_at:</span> timestamp (default)<br>
+                            <br>
+                            <span class="json-string">Validation enabled</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="mt-5">Create JSON Data File</h3>
+                <p class="section-desc">Create tables/users.json with sample data:</p>
+
+                <div class="code-block">
+                    <div class="code-header"><span class="window-dot"></span><span class="window-dot"></span><span
+                            class="window-dot"></span><span class="window-title">json</span></div>
+                    <div class="code-body">
+                        <div>[</div>
+                        <div>&nbsp;&nbsp;{</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"id"</span>: <span class="num">1</span>,</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"name"</span>: <span class="str">"Alice"</span>,
+                        </div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"email"</span>: <span
+                                class="str">"alice@example.com"</span>,</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"age"</span>: <span class="num">28</span>,</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"created_at"</span>: <span
+                                class="str">"2024-01-15"</span></div>
+                        <div>&nbsp;&nbsp;}</div>
+                        <div>]</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Usage Section -->
+        <section id="usage" style="background:#0a0e13">
+            <div class="container">
+                <div class="section-label">02 / Basic Usage</div>
+                <h2 class="section-title">Common Operations</h2>
+
+                <!-- Select All -->
+                <div class="example-section">
+                    <h3><i class="bi bi-list me-2"></i>Select All Records</h3>
+                    <p>Retrieve all users from the table.</p>
+
+                    <div class="code-with-response">
+                        <div class="code-example-side">
+                            <div class="code-block">
+                                <div class="code-header"><span class="window-dot"></span><span
+                                        class="window-dot"></span><span class="window-dot"></span><span
+                                        class="window-title">php</span></div>
+                                <div class="code-body">
+                                    <div><span class="var">$users</span> = <span class="type">Users</span>::<span
+                                            class="fn">select</span>()</div>
+                                    <div>&nbsp;&nbsp;-><span class="fn">run</span>();</div>
+                                    <div></div>
+                                    <div><span class="fn">print_r</span>(<span class="var">$users</span>);</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-response-side">
+                            <div class="response-label"><i class="bi bi-arrow-right"></i> Response</div>
+                            <div class="response-output">
+                                Array<br>
+                                (<br>
+                                &nbsp;&nbsp;[<span class="json-number">0</span>] => <span
+                                    class="json-key">Array</span><br>
+                                &nbsp;&nbsp;(<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;[<span class="json-key">id</span>] => <span
+                                    class="json-number">1</span><br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;[<span class="json-key">name</span>] => <span
+                                    class="json-string">Alice</span><br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;[<span class="json-key">email</span>] => <span
+                                    class="json-string">alice@example.com</span><br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;[<span class="json-key">age</span>] => <span
+                                    class="json-number">28</span><br>
+                                &nbsp;&nbsp;)<br>
+                                )
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Find by ID -->
+                <div class="example-section">
+                    <h3><i class="bi bi-search me-2"></i>Find by ID</h3>
+                    <p>Retrieve a single user by their ID.</p>
+
+                    <div class="code-with-response">
+                        <div class="code-example-side">
+                            <div class="code-block">
+                                <div class="code-header"><span class="window-dot"></span><span
+                                        class="window-dot"></span><span class="window-dot"></span><span
+                                        class="window-title">php</span></div>
+                                <div class="code-body">
+                                    <div><span class="var">$user</span> = <span class="type">Users</span>::<span
+                                            class="fn">where</span>([</div>
+                                    <div>&nbsp;&nbsp;<span class="str">'id'</span> => <span class="num">1</span></div>
+                                    <div>])-><span class="fn">run</span>();</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-response-side">
+                            <div class="response-label"><i class="bi bi-arrow-right"></i> Response</div>
+                            <div class="response-output">
+                                {<br>
+                                &nbsp;&nbsp;<span class="json-key">"id"</span>: <span class="json-number">1</span>,<br>
+                                &nbsp;&nbsp;<span class="json-key">"name"</span>: <span
+                                    class="json-string">"Alice"</span>,<br>
+                                &nbsp;&nbsp;<span class="json-key">"email"</span>: <span
+                                    class="json-string">"alice@example.com"</span>,<br>
+                                &nbsp;&nbsp;<span class="json-key">"age"</span>: <span class="json-number">28</span><br>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Insert -->
+                <div class="example-section">
+                    <h3><i class="bi bi-plus-circle me-2"></i>Insert a New Record</h3>
+                    <p>Add a new user. Schema validation is applied automatically.</p>
+
+                    <div class="code-with-response">
+                        <div class="code-example-side">
+                            <div class="code-block">
+                                <div class="code-header"><span class="window-dot"></span><span
+                                        class="window-dot"></span><span class="window-dot"></span><span
+                                        class="window-title">php</span></div>
+                                <div class="code-body">
+                                    <div><span class="type">Users</span>::<span class="fn">insert</span>([</div>
+                                    <div>&nbsp;&nbsp;<span class="str">'name'</span> => <span class="str">'Bob
+                                            Smith'</span>,</div>
+                                    <div>&nbsp;&nbsp;<span class="str">'email'</span> => <span
+                                            class="str">'bob@example.com'</span>,</div>
+                                    <div>&nbsp;&nbsp;<span class="str">'age'</span> => <span class="num">35</span></div>
+                                    <div>])-><span class="fn">run</span>();</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-response-side">
+                            <div class="response-label"><i class="bi bi-arrow-right"></i> Result</div>
+                            <div class="response-output">
+                                <span class="json-string">Record inserted</span><br>
+                                <br>
+                                <span class="json-key">id:</span> <span class="json-number">2</span> <span
+                                    class="json-bool">(auto-assigned)</span><br>
+                                <span class="json-key">name:</span> <span class="json-string">"Bob Smith"</span><br>
+                                <span class="json-key">email:</span> <span
+                                    class="json-string">"bob@example.com"</span><br>
+                                <span class="json-key">age:</span> <span class="json-number">35</span><br>
+                                <span class="json-key">created_at:</span> <span class="json-string">"2024-01-20"</span>
+                                <span class="json-bool">(auto)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Update -->
+                <div class="example-section">
+                    <h3><i class="bi bi-pencil-square me-2"></i>Update a Record</h3>
+                    <p>Modify specific fields of a user.</p>
+
+                    <div class="code-with-response">
+                        <div class="code-example-side">
+                            <div class="code-block">
+                                <div class="code-header"><span class="window-dot"></span><span
+                                        class="window-dot"></span><span class="window-dot"></span><span
+                                        class="window-title">php</span></div>
+                                <div class="code-body">
+                                    <div><span class="type">Users</span>::<span class="fn">where</span>([<span
+                                            class="str">'id'</span> => <span class="num">1</span>])</div>
+                                    <div>&nbsp;&nbsp;-><span class="fn">update</span>([</div>
+                                    <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">'email'</span> => <span
+                                            class="str">'alice.new@example.com'</span>,</div>
+                                    <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">'age'</span> => <span
+                                            class="num">29</span></div>
+                                    <div>&nbsp;&nbsp;])-><span class="fn">run</span>();</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-response-side">
+                            <div class="response-label"><i class="bi bi-arrow-right"></i> Updated Record</div>
+                            <div class="response-output">
+                                {<br>
+                                &nbsp;&nbsp;<span class="json-key">"id"</span>: <span class="json-number">1</span>,<br>
+                                &nbsp;&nbsp;<span class="json-key">"name"</span>: <span
+                                    class="json-string">"Alice"</span>,<br>
+                                &nbsp;&nbsp;<span class="json-key">"email"</span>: <span
+                                    class="json-string">"alice.new@example.com"</span>,<br>
+                                &nbsp;&nbsp;<span class="json-key">"age"</span>: <span class="json-number">29</span><br>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Delete -->
+                <div class="example-section">
+                    <h3><i class="bi bi-trash me-2"></i>Delete a Record</h3>
+                    <p>Remove a user by ID.</p>
+
+                    <div class="code-with-response">
+                        <div class="code-example-side">
+                            <div class="code-block">
+                                <div class="code-header"><span class="window-dot"></span><span
+                                        class="window-dot"></span><span class="window-dot"></span><span
+                                        class="window-title">php</span></div>
+                                <div class="code-body">
+                                    <div><span class="type">Users</span>::<span class="fn">where</span>([<span
+                                            class="str">'id'</span> => <span class="num">2</span>])</div>
+                                    <div>&nbsp;&nbsp;-><span class="fn">delete</span>()</div>
+                                    <div>&nbsp;&nbsp;-><span class="fn">run</span>();</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-response-side">
+                            <div class="response-label"><i class="bi bi-arrow-right"></i> Result</div>
+                            <div class="response-output">
+                                <span class="json-string">Record deleted</span><br>
+                                <br>
+                                <span class="json-key">Removed user ID:</span> <span class="json-number">2</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order -->
+                <div class="example-section">
+                    <h3><i class="bi bi-arrow-up-down me-2"></i>Sort by Column</h3>
+                    <p>Retrieve users sorted by age in ascending order.</p>
+
+                    <div class="code-with-response">
+                        <div class="code-example-side">
+                            <div class="code-block">
+                                <div class="code-header"><span class="window-dot"></span><span
+                                        class="window-dot"></span><span class="window-dot"></span><span
+                                        class="window-title">php</span></div>
+                                <div class="code-body">
+                                    <div><span class="var">$users</span> = <span class="type">Users</span>::<span
+                                            class="fn">order</span>(</div>
+                                    <div>&nbsp;&nbsp;<span class="str">'age'</span>, <span class="str">'ASC'</span>
+                                    </div>
+                                    <div>)-><span class="fn">run</span>();</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-response-side">
+                            <div class="response-label"><i class="bi bi-arrow-right"></i> Response</div>
+                            <div class="response-output">
+                                [<br>
+                                &nbsp;&nbsp;{<span class="json-key">"id"</span>: <span class="json-number">1</span>,
+                                <span class="json-key">"age"</span>: <span class="json-number">28</span>},<br>
+                                &nbsp;&nbsp;{<span class="json-key">"id"</span>: <span class="json-number">3</span>,
+                                <span class="json-key">"age"</span>: <span class="json-number">30</span>},<br>
+                                &nbsp;&nbsp;{<span class="json-key">"id"</span>: <span class="json-number">2</span>,
+                                <span class="json-key">"age"</span>: <span class="json-number">35</span>}<br>
+                                ]<br>
+                                <span class="json-string">Sorted ascending</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Limit -->
+                <div class="example-section">
+                    <h3><i class="bi bi-list-nested me-2"></i>Limit Results</h3>
+                    <p>Retrieve only the first 5 records (pagination).</p>
+
+                    <div class="code-with-response">
+                        <div class="code-example-side">
+                            <div class="code-block">
+                                <div class="code-header"><span class="window-dot"></span><span
+                                        class="window-dot"></span><span class="window-dot"></span><span
+                                        class="window-title">php</span></div>
+                                <div class="code-body">
+                                    <div><span class="var">$users</span> = <span class="type">Users</span>::<span
+                                            class="fn">limit</span>(<span class="num">5</span>)</div>
+                                    <div>&nbsp;&nbsp;-><span class="fn">run</span>();</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-response-side">
+                            <div class="response-label"><i class="bi bi-arrow-right"></i> Response</div>
+                            <div class="response-output">
+                                [<br>
+                                &nbsp;&nbsp;{<span class="json-key">"id"</span>: <span class="json-number">1</span>,
+                                ...},<br>
+                                &nbsp;&nbsp;{<span class="json-key">"id"</span>: <span class="json-number">2</span>,
+                                ...},<br>
+                                &nbsp;&nbsp;{<span class="json-key">"id"</span>: <span class="json-number">3</span>,
+                                ...},<br>
+                                &nbsp;&nbsp;{<span class="json-key">"id"</span>: <span class="json-number">4</span>,
+                                ...},<br>
+                                &nbsp;&nbsp;{<span class="json-key">"id"</span>: <span class="json-number">5</span>,
+                                ...}<br>
+                                ]<br>
+                                <span class="json-string">5 records returned</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- First/Last -->
+                <div class="example-section">
+                    <h3><i class="bi bi-skip-start me-2"></i>First & Last Record</h3>
+                    <p>Get the first or last record in the table.</p>
+
+                    <div class="code-with-response" style="margin-bottom: 30px;">
+                        <div class="code-example-side">
+                            <div class="code-block">
+                                <div class="code-header"><span class="window-dot"></span><span
+                                        class="window-dot"></span><span class="window-dot"></span><span
+                                        class="window-title">php</span></div>
+                                <div class="code-body">
+                                    <div><span class="var">$first</span> = <span class="type">Users</span>::<span
+                                            class="fn">first</span>()</div>
+                                    <div>&nbsp;&nbsp;-><span class="fn">run</span>();</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-response-side">
+                            <div class="response-label"><i class="bi bi-arrow-right"></i> Response</div>
+                            <div class="response-output">
+                                {<br>
+                                &nbsp;&nbsp;<span class="json-key">"id"</span>: <span class="json-number">1</span>,<br>
+                                &nbsp;&nbsp;<span class="json-key">"name"</span>: <span
+                                    class="json-string">"Alice"</span>,<br>
+                                &nbsp;&nbsp;<span class="json-key">"email"</span>: <span
+                                    class="json-string">"alice@example.com"</span><br>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-with-response">
+                        <div class="code-example-side">
+                            <div class="code-block">
+                                <div class="code-header"><span class="window-dot"></span><span
+                                        class="window-dot"></span><span class="window-dot"></span><span
+                                        class="window-title">php</span></div>
+                                <div class="code-body">
+                                    <div><span class="var">$last</span> = <span class="type">Users</span>::<span
+                                            class="fn">last</span>()</div>
+                                    <div>&nbsp;&nbsp;-><span class="fn">run</span>();</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-response-side">
+                            <div class="response-label"><i class="bi bi-arrow-right"></i> Response</div>
+                            <div class="response-output">
+                                {<br>
+                                &nbsp;&nbsp;<span class="json-key">"id"</span>: <span class="json-number">5</span>,<br>
+                                &nbsp;&nbsp;<span class="json-key">"name"</span>: <span class="json-string">"Eve
+                                    Wilson"</span>,<br>
+                                &nbsp;&nbsp;<span class="json-key">"email"</span>: <span
+                                    class="json-string">"eve@example.com"</span><br>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Min/Max/Avg/Sum -->
+                <div class="example-section">
+                    <h3><i class="bi bi-calculator me-2"></i>Aggregation Functions</h3>
+                    <p>Find min, max, average, and sum of numeric columns.</p>
+
+                    <div class="code-with-response" style="margin-bottom: 30px;">
+                        <div class="code-example-side">
+                            <div class="code-block">
+                                <div class="code-header"><span class="window-dot"></span><span
+                                        class="window-dot"></span><span class="window-dot"></span><span
+                                        class="window-title">php</span></div>
+                                <div class="code-body">
+                                    <div><span class="var">$youngest</span> = <span class="type">Users</span>::<span
+                                            class="fn">min</span>(<span class="str">'age'</span>)</div>
+                                    <div>&nbsp;&nbsp;-><span class="fn">run</span>();</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-response-side">
+                            <div class="response-label"><i class="bi bi-arrow-right"></i> Response</div>
+                            <div class="response-output">
+                                {<br>
+                                &nbsp;&nbsp;<span class="json-key">"id"</span>: <span class="json-number">1</span>,<br>
+                                &nbsp;&nbsp;<span class="json-key">"name"</span>: <span
+                                    class="json-string">"Alice"</span>,<br>
+                                &nbsp;&nbsp;<span class="json-key">"age"</span>: <span class="json-number">28</span><br>
+                                }<br>
+                                <span class="json-string">Min age: 28</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-with-response" style="margin-bottom: 30px;">
+                        <div class="code-example-side">
+                            <div class="code-block">
+                                <div class="code-header"><span class="window-dot"></span><span
+                                        class="window-dot"></span><span class="window-dot"></span><span
+                                        class="window-title">php</span></div>
+                                <div class="code-body">
+                                    <div><span class="var">$avg</span> = <span class="type">Users</span>::<span
+                                            class="fn">avg</span>(<span class="str">'age'</span>);</div>
+                                    <div></div>
+                                    <div><span class="fn">echo</span> <span class="var">$avg</span>; <span
+                                            class="comment">// 32.4</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-response-side">
+                            <div class="response-label"><i class="bi bi-arrow-right"></i> Response</div>
+                            <div class="response-output">
+                                <span class="json-number">32.4</span><br>
+                                <span class="json-string">Average age across all users</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-with-response">
+                        <div class="code-example-side">
+                            <div class="code-block">
+                                <div class="code-header"><span class="window-dot"></span><span
+                                        class="window-dot"></span><span class="window-dot"></span><span
+                                        class="window-title">php</span></div>
+                                <div class="code-body">
+                                    <div><span class="var">$total</span> = <span class="type">Users</span>::<span
+                                            class="fn">sum</span>(<span class="str">'age'</span>);</div>
+                                    <div></div>
+                                    <div><span class="fn">echo</span> <span class="var">$total</span>; <span
+                                            class="comment">// 162</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-response-side">
+                            <div class="response-label"><i class="bi bi-arrow-right"></i> Response</div>
+                            <div class="response-output">
+                                <span class="json-number">162</span><br>
+                                <span class="json-string">Sum of all ages</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Distinct -->
+                <div class="example-section">
+                    <h3><i class="bi bi-bounding-box me-2"></i>Distinct Values</h3>
+                    <p>Retrieve unique values for one or multiple columns.</p>
+
+                    <div class="code-with-response">
+                        <div class="code-example-side">
+                            <div class="code-block">
+                                <div class="code-header"><span class="window-dot"></span><span
+                                        class="window-dot"></span><span class="window-dot"></span><span
+                                        class="window-title">php</span></div>
+                                <div class="code-body">
+                                    <div><span class="var">$cities</span> = <span class="type">Users</span>::<span
+                                            class="fn">distinct</span>([</div>
+                                    <div>&nbsp;&nbsp;<span class="str">'address.city'</span></div>
+                                    <div>])-><span class="fn">run</span>();</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-response-side">
+                            <div class="response-label"><i class="bi bi-arrow-right"></i> Response</div>
+                            <div class="response-output">
+                                [<br>
+                                &nbsp;&nbsp;{<span class="json-key">"address"</span>: {<span
+                                    class="json-key">"city"</span>: <span class="json-string">"Lagos"</span>}},<br>
+                                &nbsp;&nbsp;{<span class="json-key">"address"</span>: {<span
+                                    class="json-key">"city"</span>: <span class="json-string">"Abuja"</span>}},<br>
+                                &nbsp;&nbsp;{<span class="json-key">"address"</span>: {<span
+                                    class="json-key">"city"</span>: <span class="json-string">"Kano"</span>}}<br>
+                                ]<br>
+                                <span class="json-string">Unique cities</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Duplicate -->
+                <div class="example-section">
+                    <h3><i class="bi bi-files me-2"></i>Duplicate a Record</h3>
+                    <p>Clone an existing record with a new ID.</p>
+
+                    <div class="code-with-response">
+                        <div class="code-example-side">
+                            <div class="code-block">
+                                <div class="code-header"><span class="window-dot"></span><span
+                                        class="window-dot"></span><span class="window-dot"></span><span
+                                        class="window-title">php</span></div>
+                                <div class="code-body">
+                                    <div><span class="type">Users</span>::<span class="fn">duplicate</span>(<span
+                                            class="num">1</span>)</div>
+                                    <div>&nbsp;&nbsp;-><span class="fn">run</span>();</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-response-side">
+                            <div class="response-label"><i class="bi bi-arrow-right"></i> Result</div>
+                            <div class="response-output">
+                                <span class="json-string">Record duplicated</span><br>
+                                <br>
+                                Original ID: <span class="json-number">1</span><br>
+                                New ID: <span class="json-number">6</span> <span
+                                    class="json-bool">(auto-assigned)</span><br>
+                                All fields copied
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schema Section -->
+        <section id="schema">
+            <div class="container">
+                <div class="section-label">03 / Schema Validation</div>
+                <h2 class="section-title">Data Types & Rules</h2>
+
+                <p class="section-desc">JBreeze ORM enforces schema validation on all operations. Define rules once, and
+                    they're applied automatically.</p>
+
+                <h3>Type Validation</h3>
+                <p class="section-desc">Ensure fields match expected data types:</p>
+
+                <div class="schema-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Description</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>int</td>
+                                <td>Integer (whole numbers)</td>
+                                <td>'age' => ['type' => 'int']</td>
+                            </tr>
+                            <tr>
+                                <td>str</td>
+                                <td>String (text)</td>
+                                <td>'name' => ['type' => 'str']</td>
+                            </tr>
+                            <tr>
+                                <td>bool</td>
+                                <td>Boolean (true/false)</td>
+                                <td>'is_active' => ['type' => 'bool']</td>
+                            </tr>
+                            <tr>
+                                <td>float / double</td>
+                                <td>Floating-point number</td>
+                                <td>'price' => ['type' => 'float']</td>
+                            </tr>
+                            <tr>
+                                <td>array</td>
+                                <td>Array of values</td>
+                                <td>'tags' => ['type' => 'array']</td>
+                            </tr>
+                            <tr>
+                                <td>object</td>
+                                <td>Object/JSON object</td>
+                                <td>'metadata' => ['type' => 'object']</td>
+                            </tr>
+                            <tr>
+                                <td>mixed</td>
+                                <td>Any type</td>
+                                <td>'created_at' => ['type' => 'mixed']</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Other Validation Rules</h3>
+
+                <div class="schema-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Rule</th>
+                                <th>Description</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>required</td>
+                                <td>Field must be provided</td>
+                                <td>'email' => ['type' => 'str', 'required' => true]</td>
+                            </tr>
+                            <tr>
+                                <td>allowed</td>
+                                <td>Restrict to specific values (pipe-separated)</td>
+                                <td>'status' => ['type' => 'str', 'allowed' => 'active|inactive|pending']</td>
+                            </tr>
+                            <tr>
+                                <td>length</td>
+                                <td>Max string length</td>
+                                <td>'username' => ['type' => 'str', 'length' => 20]</td>
+                            </tr>
+                            <tr>
+                                <td>default</td>
+                                <td>Default value if missing</td>
+                                <td>'role' => ['type' => 'str', 'default' => 'user']</td>
+                            </tr>
+                            <tr>
+                                <td>default => 'NOW()'</td>
+                                <td>Auto-timestamp</td>
+                                <td>'created_at' => ['type' => 'mixed', 'default' => 'NOW()']</td>
+                            </tr>
+                            <tr>
+                                <td>primary_key</td>
+                                <td>Auto-increment ID</td>
+                                <td>'id' => ['type' => 'int', 'primary_key' => true]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="mt-5">Complete Schema Example</h3>
+
+                <div class="code-block">
+                    <div class="code-header"><span class="window-dot"></span><span class="window-dot"></span><span
+                            class="window-dot"></span><span class="window-title">php</span></div>
+                    <div class="code-body">
+                        <div><span class="kw">public static</span> <span class="var">$schema</span> = [</div>
+                        <div>&nbsp;&nbsp;<span class="str">'id'</span> => [<span class="str">'type'</span> => <span
+                                class="str">'int'</span>, <span class="str">'primary_key'</span> => <span
+                                class="kw">true</span>],</div>
+                        <div>&nbsp;&nbsp;<span class="str">'name'</span> => [<span class="str">'type'</span> => <span
+                                class="str">'str'</span>, <span class="str">'required'</span> => <span
+                                class="kw">true</span>],</div>
+                        <div>&nbsp;&nbsp;<span class="str">'email'</span> => [<span class="str">'type'</span> => <span
+                                class="str">'str'</span>, <span class="str">'required'</span> => <span
+                                class="kw">true</span>, <span class="str">'length'</span> => <span
+                                class="num">100</span>],</div>
+                        <div>&nbsp;&nbsp;<span class="str">'age'</span> => [<span class="str">'type'</span> => <span
+                                class="str">'int'</span>],</div>
+                        <div>&nbsp;&nbsp;<span class="str">'status'</span> => [<span class="str">'type'</span> => <span
+                                class="str">'str'</span>, <span class="str">'default'</span> => <span
+                                class="str">'active'</span>, <span class="str">'allowed'</span> => <span
+                                class="str">'active|inactive|pending'</span>],</div>
+                        <div>&nbsp;&nbsp;<span class="str">'address.country'</span> => [<span class="str">'type'</span>
+                            => <span class="str">'str'</span>, <span class="str">'required'</span> => <span
+                                class="kw">true</span>],</div>
+                        <div>&nbsp;&nbsp;<span class="str">'address.city'</span> => [<span class="str">'type'</span> =>
+                            <span class="str">'str'</span>],</div>
+                        <div>&nbsp;&nbsp;<span class="str">'created_at'</span> => [<span class="str">'type'</span> =>
+                            <span class="str">'mixed'</span>, <span class="str">'default'</span> => <span
+                                class="str">'NOW()'</span>]</div>
+                        <div>];</div>
+                    </div>
+                </div>
+
+                <h3 class="mt-5">Nested Fields with Dot Notation</h3>
+                <p class="section-desc">JBreeze ORM automatically handles nested structures:</p>
+
+                <div class="code-with-response">
+                    <div class="code-example-side">
+                        <div class="code-block">
+                            <div class="code-header"><span class="window-dot"></span><span
+                                    class="window-dot"></span><span class="window-dot"></span><span
+                                    class="window-title">php</span></div>
+                            <div class="code-body">
+                                <div><span class="type">Users</span>::<span class="fn">insert</span>([</div>
+                                <div>&nbsp;&nbsp;<span class="str">'name'</span> => <span class="str">'John'</span>,
+                                </div>
+                                <div>&nbsp;&nbsp;<span class="str">'email'</span> => <span
+                                        class="str">'john@ex.com'</span>,</div>
+                                <div>&nbsp;&nbsp;<span class="str">'address.country'</span> => <span
+                                        class="str">'Nigeria'</span>,</div>
+                                <div>&nbsp;&nbsp;<span class="str">'address.city'</span> => <span
+                                        class="str">'Lagos'</span></div>
+                                <div>])-><span class="fn">run</span>();</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code-response-side">
+                        <div class="response-label"><i class="bi bi-arrow-right"></i> Stored As</div>
+                        <div class="response-output">
+                            {<br>
+                            &nbsp;&nbsp;<span class="json-key">"id"</span>: <span class="json-number">1</span>,<br>
+                            &nbsp;&nbsp;<span class="json-key">"name"</span>: <span
+                                class="json-string">"John"</span>,<br>
+                            &nbsp;&nbsp;<span class="json-key">"address"</span>: {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"country"</span>: <span
+                                class="json-string">"Nigeria"</span>,<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"city"</span>: <span
+                                class="json-string">"Lagos"</span><br>
+                            &nbsp;&nbsp;}<br>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Advanced Section -->
+        <section id="advanced" style="background:#0a0e13">
+            <div class="container">
+                <div class="section-label">04 / Advanced Features</div>
+                <h2 class="section-title">Backup, Restore & More</h2>
+
+                <div class="example-section">
+                    <h3><i class="bi bi-cloud-check me-2"></i>Backup & Restore</h3>
+                    <p>Automatically backup your JSON data and restore when needed.</p>
+
+                    <div class="code-with-response" style="margin-bottom: 30px;">
+                        <div class="code-example-side">
+                            <div class="code-block">
+                                <div class="code-header"><span class="window-dot"></span><span
+                                        class="window-dot"></span><span class="window-dot"></span><span
+                                        class="window-title">php</span></div>
+                                <div class="code-body">
+                                    <div><span class="comment">// Create automatic backup</span></div>
+                                    <div><span class="type">Users</span>::<span class="fn">backupJsonFile</span>();
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-response-side">
+                            <div class="response-label"><i class="bi bi-arrow-right"></i> Result</div>
+                            <div class="response-output">
+                                <span class="json-string">Backup created</span><br>
+                                <span class="json-key">File:</span> backup_users.json<br>
+                                <span class="json-key">Location:</span> tables/backup/
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-with-response" style="margin-bottom: 30px;">
+                        <div class="code-example-side">
+                            <div class="code-block">
+                                <div class="code-header"><span class="window-dot"></span><span
+                                        class="window-dot"></span><span class="window-dot"></span><span
+                                        class="window-title">php</span></div>
+                                <div class="code-body">
+                                    <div><span class="comment">// View backup contents</span></div>
+                                    <div><span class="fn">print_r</span>(<span class="type">Users</span>::<span
+                                            class="fn">getBackup</span>());</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-response-side">
+                            <div class="response-label"><i class="bi bi-arrow-right"></i> Result</div>
+                            <div class="response-output">
+                                Array of all records<br>
+                                from backup_users.json
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-with-response">
+                        <div class="code-example-side">
+                            <div class="code-block">
+                                <div class="code-header"><span class="window-dot"></span><span
+                                        class="window-dot"></span><span class="window-dot"></span><span
+                                        class="window-title">php</span></div>
+                                <div class="code-body">
+                                    <div><span class="comment">// Restore from backup</span></div>
+                                    <div><span class="type">Users</span>::<span class="fn">restoreFromBackup</span>();
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-response-side">
+                            <div class="response-label"><i class="bi bi-arrow-right"></i> Result</div>
+                            <div class="response-output">
+                                <span class="json-string">Backup restored</span><br>
+                                users.json replaced with<br>
+                                contents from backup
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-section">
+                    <h3><i class="bi bi-arrow-repeat me-2"></i>Update Structure</h3>
+                    <p>Enforce schema rules on existing data and rename fields.</p>
+
+                    <div class="code-with-response" style="margin-bottom: 30px;">
+                        <div class="code-example-side">
+                            <div class="code-block">
+                                <div class="code-header"><span class="window-dot"></span><span
+                                        class="window-dot"></span><span class="window-dot"></span><span
+                                        class="window-title">php</span></div>
+                                <div class="code-body">
+                                    <div><span class="comment">// Clean & normalize all records</span></div>
+                                    <div><span class="type">Users</span>::<span class="fn">updateStructure</span>();
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-response-side">
+                            <div class="response-label"><i class="bi bi-arrow-right"></i> Actions</div>
+                            <div class="response-output">
+                                ✓ Removes extra fields<br>
+                                ✓ Adds missing fields<br>
+                                ✓ Fills defaults<br>
+                                ✓ Auto backup created
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-with-response">
+                        <div class="code-example-side">
+                            <div class="code-block">
+                                <div class="code-header"><span class="window-dot"></span><span
+                                        class="window-dot"></span><span class="window-dot"></span><span
+                                        class="window-title">php</span></div>
+                                <div class="code-body">
+                                    <div><span class="comment">// Rename fields</span></div>
+                                    <div><span class="type">Users</span>::<span class="fn">updateStructure</span>([
+                                    </div>
+                                    <div>&nbsp;&nbsp;<span class="str">'mobile'</span> => <span
+                                            class="str">'phone'</span>,</div>
+                                    <div>&nbsp;&nbsp;<span class="str">'address.county'</span> => <span
+                                            class="str">'address.state'</span></div>
+                                    <div>]);</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-response-side">
+                            <div class="response-label"><i class="bi bi-arrow-right"></i> Result</div>
+                            <div class="response-output">
+                                ✓ 'mobile' → 'phone'<br>
+                                ✓ 'address.county' → 'address.state'<br>
+                                All records updated<br>
+                                Backup created
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-section">
+                    <h3><i class="bi bi-gear me-2"></i>View Configuration</h3>
+                    <p>Inspect the current model configuration.</p>
+
+                    <div class="code-with-response">
+                        <div class="code-example-side">
+                            <div class="code-block">
+                                <div class="code-header"><span class="window-dot"></span><span
+                                        class="window-dot"></span><span class="window-dot"></span><span
+                                        class="window-title">php</span></div>
+                                <div class="code-body">
+                                    <div><span class="fn">print_r</span>(<span class="type">Users</span>::<span
+                                            class="fn">getConfig</span>());</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-response-side">
+                            <div class="response-label"><i class="bi bi-arrow-right"></i> Config</div>
+                            <div class="response-output">
+                                [<br>
+                                &nbsp;&nbsp;<span class="json-key">'table_name'</span> => <span
+                                    class="json-string">'users'</span>,<br>
+                                &nbsp;&nbsp;<span class="json-key">'model_path'</span> => <span
+                                    class="json-string">'/models'</span>,<br>
+                                &nbsp;&nbsp;<span class="json-key">'tables_path'</span> => <span
+                                    class="json-string">'/tables'</span>,<br>
+                                &nbsp;&nbsp;<span class="json-key">'return_type'</span> => <span
+                                    class="json-string">'json'</span><br>
+                                ]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-section">
+                    <h3><i class="bi bi-globe me-2"></i>Remote JSON via URL</h3>
+                    <p>Fetch JSON data from a remote API instead of local files.</p>
+
+                    <div class="code-with-response">
+                        <div class="code-example-side">
+                            <div class="code-block">
+                                <div class="code-header"><span class="window-dot"></span><span
+                                        class="window-dot"></span><span class="window-dot"></span><span
+                                        class="window-title">php</span></div>
+                                <div class="code-body">
+                                    <div><span class="kw">class</span> <span class="type">RemoteUsers</span> <span
+                                            class="kw">extends</span> <span class="type">JB_Model</span></div>
+                                    <div>{</div>
+                                    <div>&nbsp;&nbsp;<span class="kw">protected static</span> <span
+                                            class="var">$url</span> =</div>
+                                    <div>&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                            class="str">"https://api.example.com/users.json"</span>;</div>
+                                    <div></div>
+                                    <div>&nbsp;&nbsp;<span class="kw">public static</span> <span
+                                            class="var">$schema</span> = [...];</div>
+                                    <div>}</div>
+                                    <div></div>
+                                    <div><span class="var">$users</span> = <span class="type">RemoteUsers</span>::<span
+                                            class="fn">select</span>()</div>
+                                    <div>&nbsp;&nbsp;-><span class="fn">run</span>();</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-response-side">
+                            <div class="response-label"><i class="bi bi-arrow-right"></i> Result</div>
+                            <div class="response-output">
+                                Fetches from:<br>
+                                https://api.example.com/users.json<br>
+                                <br>
+                                Applies schema validation<br>
+                                Works just like local files
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tips Section -->
+        <section style="background:#0a0e13">
+            <div class="container">
+                <div class="section-label">05 / Best Practices</div>
+                <h2 class="section-title">Workflow Tips</h2>
+
+                <div class="row g-4 mt-4">
+                    <div class="col-lg-6">
+                        <div class="arch-step">
+                            <strong>Define Clear Schemas</strong>
+                            <p>Always define a complete schema. It's the foundation for data integrity.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="arch-step">
+                            <strong>Use Required Fields</strong>
+                            <p>Mark critical fields as 'required' to catch missing data early.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="arch-step">
+                            <strong>Backup Before Restructuring</strong>
+                            <p>Automatic backups are created, but always review before running updateStructure().</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="arch-step">
+                            <strong>Chain Methods Efficiently</strong>
+                            <p>Combine where(), order(), limit() to reduce code and improve readability.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p class="mb-2"><strong>JBreeze ORM</strong></p>
+            <p>
+                <a href="https://github.com/israel-007/JBreeze" target="_blank"><i
+                        class="bi bi-github me-1"></i>GitHub</a>
+                •
+                <a href="https://packagist.org/packages/jbreeze/jbreeze" target="_blank"><i
+                        class="bi bi-box me-1"></i>Packagist</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

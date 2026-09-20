@@ -1,4 +1,4 @@
-document.getElementById('year').textContent = new Date().getFullYear();
+// document.getElementById('year').textContent = new Date().getFullYear();
 
 // Close mobile menu after clicking a navigation link
 document.querySelectorAll('.navbar .nav-link').forEach(link => {
@@ -45,7 +45,7 @@ revealElements.forEach(el => {
 function animateCounter(element, target, duration = 1000) {
   let current = 0;
   const increment = target / (duration / 16);
-  
+
   const counter = setInterval(() => {
     current += increment;
     if (current >= target) {
@@ -125,8 +125,8 @@ window.addEventListener('load', addCodeCursor);
 // Disable hover effects on touch devices
 const isTouchDevice = () => {
   return (('ontouchstart' in window) ||
-          (navigator.maxTouchPoints > 0) ||
-          (navigator.msMaxTouchPoints > 0));
+    (navigator.maxTouchPoints > 0) ||
+    (navigator.msMaxTouchPoints > 0));
 };
 
 if (isTouchDevice()) {
